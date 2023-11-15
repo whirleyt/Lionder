@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  LionDer
+//  TeamAlgeria
 //
 //  Created by Silvia Lopez on 11/15/23.
 //

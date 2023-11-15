@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C0397E22B05762E0038CE92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0397E12B05762E0038CE92 /* AppDelegate.swift */; };
-		6C0397E42B05762E0038CE92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0397E32B05762E0038CE92 /* SceneDelegate.swift */; };
-		6C0397E62B05762E0038CE92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0397E52B05762E0038CE92 /* ViewController.swift */; };
-		6C0397E92B05762E0038CE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0397E72B05762E0038CE92 /* Main.storyboard */; };
-		6C0397EB2B0576300038CE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0397EA2B0576300038CE92 /* Assets.xcassets */; };
-		6C0397EE2B0576300038CE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0397EC2B0576300038CE92 /* LaunchScreen.storyboard */; };
+		6C0398222B0578D70038CE92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398212B0578D70038CE92 /* AppDelegate.swift */; };
+		6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398232B0578D70038CE92 /* SceneDelegate.swift */; };
+		6C0398262B0578D70038CE92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398252B0578D70038CE92 /* ViewController.swift */; };
+		6C0398292B0578D70038CE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0398272B0578D70038CE92 /* Main.storyboard */; };
+		6C03982B2B0578DA0038CE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982A2B0578DA0038CE92 /* Assets.xcassets */; };
+		6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C0397DE2B05762E0038CE92 /* LionDer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionDer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C0397E12B05762E0038CE92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C0397E32B05762E0038CE92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6C0397E52B05762E0038CE92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6C0397E82B05762E0038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6C0397EA2B0576300038CE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6C0397ED2B0576300038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6C0397EF2B0576310038CE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C03981E2B0578D70038CE92 /* TeamAlgeria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamAlgeria.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C0398212B0578D70038CE92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6C0398232B0578D70038CE92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6C0398252B0578D70038CE92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C0398282B0578D70038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6C03982A2B0578DA0038CE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C03982D2B0578DA0038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6C03982F2B0578DA0038CE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C0397DB2B05762E0038CE92 /* Frameworks */ = {
+		6C03981B2B0578D70038CE92 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +37,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C0397D52B05762E0038CE92 = {
+		6C0398152B0578D70038CE92 = {
 			isa = PBXGroup;
 			children = (
-				6C0397E02B05762E0038CE92 /* LionDer */,
-				6C0397DF2B05762E0038CE92 /* Products */,
+				6C0398202B0578D70038CE92 /* TeamAlgeria */,
+				6C03981F2B0578D70038CE92 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6C0397DF2B05762E0038CE92 /* Products */ = {
+		6C03981F2B0578D70038CE92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C0397DE2B05762E0038CE92 /* LionDer.app */,
+				6C03981E2B0578D70038CE92 /* TeamAlgeria.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C0397E02B05762E0038CE92 /* LionDer */ = {
+		6C0398202B0578D70038CE92 /* TeamAlgeria */ = {
 			isa = PBXGroup;
 			children = (
-				6C0397E12B05762E0038CE92 /* AppDelegate.swift */,
-				6C0397E32B05762E0038CE92 /* SceneDelegate.swift */,
-				6C0397E52B05762E0038CE92 /* ViewController.swift */,
-				6C0397E72B05762E0038CE92 /* Main.storyboard */,
-				6C0397EA2B0576300038CE92 /* Assets.xcassets */,
-				6C0397EC2B0576300038CE92 /* LaunchScreen.storyboard */,
-				6C0397EF2B0576310038CE92 /* Info.plist */,
+				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
+				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
+				6C0398252B0578D70038CE92 /* ViewController.swift */,
+				6C0398272B0578D70038CE92 /* Main.storyboard */,
+				6C03982A2B0578DA0038CE92 /* Assets.xcassets */,
+				6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */,
+				6C03982F2B0578DA0038CE92 /* Info.plist */,
 			);
-			path = LionDer;
+			path = TeamAlgeria;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C0397DD2B05762E0038CE92 /* LionDer */ = {
+		6C03981D2B0578D70038CE92 /* TeamAlgeria */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C0397F22B0576310038CE92 /* Build configuration list for PBXNativeTarget "LionDer" */;
+			buildConfigurationList = 6C0398322B0578DA0038CE92 /* Build configuration list for PBXNativeTarget "TeamAlgeria" */;
 			buildPhases = (
-				6C0397DA2B05762E0038CE92 /* Sources */,
-				6C0397DB2B05762E0038CE92 /* Frameworks */,
-				6C0397DC2B05762E0038CE92 /* Resources */,
+				6C03981A2B0578D70038CE92 /* Sources */,
+				6C03981B2B0578D70038CE92 /* Frameworks */,
+				6C03981C2B0578D70038CE92 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LionDer;
-			productName = LionDer;
-			productReference = 6C0397DE2B05762E0038CE92 /* LionDer.app */;
+			name = TeamAlgeria;
+			productName = TeamAlgeria;
+			productReference = 6C03981E2B0578D70038CE92 /* TeamAlgeria.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6C0397D62B05762E0038CE92 /* Project object */ = {
+		6C0398162B0578D70038CE92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					6C0397DD2B05762E0038CE92 = {
+					6C03981D2B0578D70038CE92 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 6C0397D92B05762E0038CE92 /* Build configuration list for PBXProject "LionDer" */;
+			buildConfigurationList = 6C0398192B0578D70038CE92 /* Build configuration list for PBXProject "TeamAlgeria" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = 6C0397D52B05762E0038CE92;
-			productRefGroup = 6C0397DF2B05762E0038CE92 /* Products */;
+			mainGroup = 6C0398152B0578D70038CE92;
+			productRefGroup = 6C03981F2B0578D70038CE92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C0397DD2B05762E0038CE92 /* LionDer */,
+				6C03981D2B0578D70038CE92 /* TeamAlgeria */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6C0397DC2B05762E0038CE92 /* Resources */ = {
+		6C03981C2B0578D70038CE92 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C0397EE2B0576300038CE92 /* LaunchScreen.storyboard in Resources */,
-				6C0397EB2B0576300038CE92 /* Assets.xcassets in Resources */,
-				6C0397E92B05762E0038CE92 /* Main.storyboard in Resources */,
+				6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */,
+				6C03982B2B0578DA0038CE92 /* Assets.xcassets in Resources */,
+				6C0398292B0578D70038CE92 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C0397DA2B05762E0038CE92 /* Sources */ = {
+		6C03981A2B0578D70038CE92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C0397E62B05762E0038CE92 /* ViewController.swift in Sources */,
-				6C0397E22B05762E0038CE92 /* AppDelegate.swift in Sources */,
-				6C0397E42B05762E0038CE92 /* SceneDelegate.swift in Sources */,
+				6C0398262B0578D70038CE92 /* ViewController.swift in Sources */,
+				6C0398222B0578D70038CE92 /* AppDelegate.swift in Sources */,
+				6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6C0397E72B05762E0038CE92 /* Main.storyboard */ = {
+		6C0398272B0578D70038CE92 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6C0397E82B05762E0038CE92 /* Base */,
+				6C0398282B0578D70038CE92 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6C0397EC2B0576300038CE92 /* LaunchScreen.storyboard */ = {
+		6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6C0397ED2B0576300038CE92 /* Base */,
+				6C03982D2B0578DA0038CE92 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6C0397F02B0576310038CE92 /* Debug */ = {
+		6C0398302B0578DA0038CE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +229,7 @@
 			};
 			name = Debug;
 		};
-		6C0397F12B0576310038CE92 /* Release */ = {
+		6C0398312B0578DA0038CE92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,7 +285,7 @@
 			};
 			name = Release;
 		};
-		6C0397F32B0576310038CE92 /* Debug */ = {
+		6C0398332B0578DA0038CE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -293,7 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LionDer/Info.plist;
+				INFOPLIST_FILE = TeamAlgeria/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -304,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.columbia.LionDer;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.columbia.TeamAlgeria;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,7 +312,7 @@
 			};
 			name = Debug;
 		};
-		6C0397F42B0576310038CE92 /* Release */ = {
+		6C0398342B0578DA0038CE92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -320,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LionDer/Info.plist;
+				INFOPLIST_FILE = TeamAlgeria/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -331,7 +331,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.columbia.LionDer;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.columbia.TeamAlgeria;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,25 +342,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C0397D92B05762E0038CE92 /* Build configuration list for PBXProject "LionDer" */ = {
+		6C0398192B0578D70038CE92 /* Build configuration list for PBXProject "TeamAlgeria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C0397F02B0576310038CE92 /* Debug */,
-				6C0397F12B0576310038CE92 /* Release */,
+				6C0398302B0578DA0038CE92 /* Debug */,
+				6C0398312B0578DA0038CE92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C0397F22B0576310038CE92 /* Build configuration list for PBXNativeTarget "LionDer" */ = {
+		6C0398322B0578DA0038CE92 /* Build configuration list for PBXNativeTarget "TeamAlgeria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C0397F32B0576310038CE92 /* Debug */,
-				6C0397F42B0576310038CE92 /* Release */,
+				6C0398332B0578DA0038CE92 /* Debug */,
+				6C0398342B0578DA0038CE92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6C0397D62B05762E0038CE92 /* Project object */;
+	rootObject = 6C0398162B0578D70038CE92 /* Project object */;
 }
