@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class createMainProfileVC: UIViewController, UITextFieldDelegate  {
 
@@ -16,7 +17,7 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var pronouns: UITextField!
     
-    var userProfile  = UserProfile(
+    var userProfile: UserProfile? = UserProfile(
            name: "",
            email: "",
            gender: "",
@@ -59,26 +60,40 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate  {
 
         switch identifier {
          case "name":
-             userProfile.name = textField.text ?? ""
+            userProfile?.name = textField.text ?? ""
          case "email":
-             userProfile.email = textField.text ?? ""
+            userProfile?.email = textField.text ?? ""
          case "gender":
-             userProfile.gender = textField.text ?? ""
+            userProfile?.gender = textField.text ?? ""
          case "pronouns":
-             userProfile.pronouns = textField.text ?? ""
+            userProfile?.pronouns = textField.text ?? ""
          case "password":
-             userProfile.password = textField.text ?? ""
+            userProfile?.password = textField.text ?? ""
          case "school":
-             userProfile.school = textField.text ?? ""
+            userProfile?.school = textField.text ?? ""
          default:
              print("Unhandled identifier: \(identifier)")
          }
-        print(userProfile)
+        print(userProfile as Any)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let email = userProfile?.email, !email.isEmpty,
+              let password = userProfile?.password, !password.isEmpty else {
+            let alert = UIAlertController(title: "Error", message: "Email and password are required.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error creating user: \(error.localizedDescription)")
+            } else {
+                print("User created successfully")
+            }
+        }
         if let destination = segue.destination as? createPhotosBioProfileVC {
-            self.userProfile.pronouns = pronouns.text ?? ""
+            self.userProfile?.pronouns = pronouns.text ?? ""
             destination.userProfile = self.userProfile
         }
     }
