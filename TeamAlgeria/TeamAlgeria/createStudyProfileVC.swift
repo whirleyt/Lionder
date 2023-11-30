@@ -36,7 +36,6 @@ class createStudyProfileVC: UIViewController, UITextFieldDelegate  {
     
     @IBAction func signUpButton(_ sender: Any) {
         self.userProfile?.classes = classes.text ?? ""
-        print(userProfile as Any)
 
         guard let userProfileDict = try? userProfile?.asDictionary(),
               let email = userProfile?.email else {
@@ -49,7 +48,6 @@ class createStudyProfileVC: UIViewController, UITextFieldDelegate  {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Editing ended for \(textField.accessibilityIdentifier ?? "unknown field")")
         processTextFieldInput(textField)
       }
     
@@ -69,7 +67,6 @@ class createStudyProfileVC: UIViewController, UITextFieldDelegate  {
          default:
              print("Unhandled identifier: \(identifier)")
          }
-        print(userProfile as Any)
     }
 
 }

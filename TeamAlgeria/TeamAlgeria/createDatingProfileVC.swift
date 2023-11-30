@@ -22,7 +22,6 @@ class createDatingProfileVC: UIViewController, UITextFieldDelegate  {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Editing ended for \(textField.accessibilityIdentifier ?? "unknown field")")
         processTextFieldInput(textField)
       }
     
@@ -40,7 +39,6 @@ class createDatingProfileVC: UIViewController, UITextFieldDelegate  {
          default:
              print("Unhandled identifier: \(identifier)")
          }
-        print(userProfile as Any)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
