@@ -5,11 +5,10 @@
 //  Created by Runwei Wang on 11/16/23.
 //
 
-import UIKit
+import Foundation
 
 struct ChatMessage {
-    let name: String
-    let lastMessage: String
-    let time: String
-    let profileImageName: String
+    let content: String
+    let timestamp: TimeInterval
+    let isOutgoing: Bool
 }

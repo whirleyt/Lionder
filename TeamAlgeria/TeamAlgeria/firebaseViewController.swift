@@ -33,9 +33,18 @@ class firebaseViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true)
             } else {
                 print("Login Successful")
-                self.performSegue(withIdentifier: "toMainFunction", sender: nil)
+                
+                if let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController = tabBarController
+                        window.makeKeyAndVisible()
+                        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                    }
                 }
+
             }
+        }
     }
 
     override func viewDidLoad() {

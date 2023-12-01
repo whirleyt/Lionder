@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessagingViewController: UIViewController, UITableViewDataSource {
+class MessagingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -18,62 +18,54 @@ class MessagingViewController: UIViewController, UITableViewDataSource {
         performSegue(withIdentifier: "showProfile", sender: self)
     }
     
-    var chatMessages: [ChatMessage] = [
-        ChatMessage(name: "Eve", lastMessage: "Check out this new app!", time: "08:45 PM", profileImageName: "Eve-0"),
-        ChatMessage(name: "Frank", lastMessage: "Started watching that new series yet?", time: "08:30 PM", profileImageName: "Frank-0"),
-        ChatMessage(name: "Grace", lastMessage: "Thanks for the birthday wishes!", time: "07:25 PM", profileImageName: "Grace-0"),
-        ChatMessage(name: "Henry", lastMessage: "Is our meeting still on for tomorrow?", time: "07:10 PM", profileImageName: "Henry-0"),
-        ChatMessage(name: "Liam", lastMessage: "Did you get my last email about the trip?", time: "06:50 PM", profileImageName: "Liam-0"),
-        ChatMessage(name: "Mia", lastMessage: "That's a great idea! I'll look into it.", time: "06:35 PM", profileImageName: "Mia-0"),
-        ChatMessage(name: "Noah", lastMessage: "I'll be there in 10 minutes.", time: "06:20 PM", profileImageName: "Noah-0"),
-        ChatMessage(name: "Olivia", lastMessage: "Happy Anniversary!", time: "05:50 PM", profileImageName: "Olivia-0"),
-        ChatMessage(name: "Parker", lastMessage: "Can you please share the playlist from last night?", time: "05:45 PM", profileImageName: "Parker-0"),
-        ChatMessage(name: "Quinn", lastMessage: "The meeting is rescheduled to next week.", time: "05:30 PM", profileImageName: "Quinn-0"),
-        ChatMessage(name: "Riley", lastMessage: "I've left the keys at the reception for you.", time: "05:15 PM", profileImageName: "Riley-0"),
-        ChatMessage(name: "Sophia", lastMessage: "Can't wait to see you this weekend!", time: "05:00 PM", profileImageName: "Sophia-0"),
-        ChatMessage(name: "Tyler", lastMessage: "The gym session was intense today!", time: "04:45 PM", profileImageName: "Tyler-0"),
-        ChatMessage(name: "Uma", lastMessage: "The book you recommended was fantastic!", time: "04:30 PM", profileImageName: "Uma-0"),
-        ChatMessage(name: "Victor", lastMessage: "The project deadline is approaching fast.", time: "04:15 PM", profileImageName: "Victor-0"),
-        ChatMessage(name: "Wendy", lastMessage: "Let's plan for the reunion.", time: "04:00 PM", profileImageName: "Wendy-0"),
-        ChatMessage(name: "Xavier", lastMessage: "I've sent you the directions on the map.", time: "03:45 PM", profileImageName: "Xavier-0"),
-        ChatMessage(name: "Yara", lastMessage: "The photos from our trip have been uploaded.", time: "03:30 PM", profileImageName: "Yara-0"),
-        ChatMessage(name: "Zane", lastMessage: "Could you review my latest draft when you have time?", time: "03:15 PM", profileImageName: "Zane-0"),
-        ChatMessage(name: "Alice", lastMessage: "Hey, how's it going?", time: "10:30 AM", profileImageName: "Alice-0"),
-        ChatMessage(name: "Bob", lastMessage: "Got the notes?", time: "09:15 AM", profileImageName: "Bob-0"),
-        ChatMessage(name: "Dana", lastMessage: "Can't believe what happened in the game!", time: "Yesterday", profileImageName: "Dana-0"),
-        ChatMessage(name: "Charlie", lastMessage: "Let's catch up over coffee?", time: "Yesterday", profileImageName: "Charlie-0"),
-        ChatMessage(name: "Jake", lastMessage: "That new restaurant was amazing!", time: "Monday", profileImageName: "Jake-0"),
-        ChatMessage(name: "Ivy", lastMessage: "Don't forget to send me the report.", time: "Monday", profileImageName: "Ivy-0"),
-        
-        // Add more messages
+    var chatSessions: [ChatSession] = [
+        ChatSession(senderId: "t1", senderName: "Eve", profileImageName: "Eve-0", chatMessages: [ChatMessage(content: "I've just enrolled in the COMS4995 iOS App Development course. I'm a bit nervous since I don't have much background in programming. Any tips on how to prepare?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(content: "That's great news! Don't worry too much about your current skill level. These courses are designed to guide you from the basics. However, a little preparation can go a long way. Have you tried any online coding platforms?", timestamp: 1672527610000, isOutgoing: false), ChatMessage(content: "Not yet. Do you think platforms like Codecademy or Udemy would help?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(content: "Absolutely! They offer beginner courses in Swift, which is the programming language you'll use for iOS development. Getting a head start in understanding Swift's syntax and basic concepts will make your initial classes much easier.", timestamp: 1672527610000, isOutgoing: false) ] ),
+        ChatSession(senderId: "t1", senderName: "Fred", profileImageName: "Fred-0", chatMessages: [ChatMessage(content: "iOS development isn’t just about coding; it’s about creating a user experience. Apple's Human Interface Guidelines are a great resource to understand the principles of good iOS app design. Also, familiarizing yourself with tools like Sketch or Adobe XD can be beneficial, though many UI designs in iOS are done directly in Xcode", timestamp: 1672527700000, isOutgoing: false), ChatMessage(content: "I see. I guess I have a lot to learn. What about the practical side of things? I don't want to be all theory and no practice.", timestamp: 1672527810000, isOutgoing: true)] ),
         ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.dataSource = self
-        // Use dummy data
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCalendar" {
-            // Pass data to the Calendar view controller if needed
-        } else if segue.identifier == "showProfile" {
-            // Pass data to the Profile view controller if needed
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatMessages.count
+        return chatSessions.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showChatDetail" {
+            if let chatDetailVC = segue.destination as? ChatDetailViewController,
+               let selectedChatSession = sender as? ChatSession {
+                chatDetailVC.chatSession = selectedChatSession
+            }
+        }
+    }
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
-        let message = chatMessages[indexPath.row]
-        cell.nameLabel.text = message.name
-        cell.lastMessageLabel.text = message.lastMessage
-        cell.timeLabel.text = message.time
-        cell.profileImageView.image = UIImage(named: message.profileImageName)
+        let chatSession = chatSessions[indexPath.row]
+        
+        cell.nameLabel.text = chatSession.senderName
+        if let lastMessage = chatSession.chatMessages.last {
+            cell.lastMessageLabel.text = lastMessage.content
+
+            let date = Date(timeIntervalSince1970: lastMessage.timestamp / 1000)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+            cell.timeLabel.text = dateFormatter.string(from: date)
+        }
+        cell.profileImageView.image = UIImage(named: chatSession.profileImageName)
+
         return cell
-     }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedChatSession = chatSessions[indexPath.row]
+        performSegue(withIdentifier: "showChatDetail", sender: selectedChatSession)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
 }
