@@ -32,8 +32,8 @@ class firebaseViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
             } else {
-//                self.performSegue(withIdentifier: "homePageSegue", sender: nil)
                 print("Login Successful")
+                self.performSegue(withIdentifier: "toMainFunction", sender: nil)
                 }
             }
     }

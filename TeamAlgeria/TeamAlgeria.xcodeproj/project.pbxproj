@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214D53662B195874006BC0DB /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53612B195874006BC0DB /* MessagingViewController.swift */; };
+		214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53622B195874006BC0DB /* ChatTableViewCell.swift */; };
+		214D53682B195874006BC0DB /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53632B195874006BC0DB /* ChatMessage.swift */; };
+		214D53692B195874006BC0DB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53642B195874006BC0DB /* MapViewController.swift */; };
+		214D536A2B195874006BC0DB /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53652B195874006BC0DB /* MatchViewController.swift */; };
 		599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667732B12CBCD00E99F6D /* firebaseViewController.swift */; };
 		5996677A2B18002B00E99F6D /* createMainProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667792B18002B00E99F6D /* createMainProfileVC.swift */; };
 		5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5996677B2B18004800E99F6D /* createDatingProfileVC.swift */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		214D53612B195874006BC0DB /* MessagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
+		214D53622B195874006BC0DB /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		214D53632B195874006BC0DB /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		214D53642B195874006BC0DB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		214D53652B195874006BC0DB /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		599667732B12CBCD00E99F6D /* firebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseViewController.swift; sourceTree = "<group>"; };
 		599667792B18002B00E99F6D /* createMainProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createMainProfileVC.swift; sourceTree = "<group>"; };
 		5996677B2B18004800E99F6D /* createDatingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDatingProfileVC.swift; sourceTree = "<group>"; };
@@ -115,6 +125,11 @@
 		6C0398202B0578D70038CE92 /* TeamAlgeria */ = {
 			isa = PBXGroup;
 			children = (
+				214D53642B195874006BC0DB /* MapViewController.swift */,
+				214D53652B195874006BC0DB /* MatchViewController.swift */,
+				214D53612B195874006BC0DB /* MessagingViewController.swift */,
+				214D53622B195874006BC0DB /* ChatTableViewCell.swift */,
+				214D53632B195874006BC0DB /* ChatMessage.swift */,
 				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
 				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
 				6C0398252B0578D70038CE92 /* ViewController.swift */,
@@ -229,14 +244,19 @@
 			files = (
 				6C0398262B0578D70038CE92 /* ViewController.swift in Sources */,
 				5996677A2B18002B00E99F6D /* createMainProfileVC.swift in Sources */,
+				214D53682B195874006BC0DB /* ChatMessage.swift in Sources */,
 				599667842B18064300E99F6D /* UserProfile.swift in Sources */,
 				6C0398222B0578D70038CE92 /* AppDelegate.swift in Sources */,
+				214D53662B195874006BC0DB /* MessagingViewController.swift in Sources */,
 				5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */,
 				599667822B18023300E99F6D /* createPhotosBioProfileVC.swift in Sources */,
 				599667802B18007400E99F6D /* createStudyProfileVC.swift in Sources */,
+				214D536A2B195874006BC0DB /* MatchViewController.swift in Sources */,
 				6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */,
+				214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */,
 				599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */,
 				5996677E2B18005F00E99F6D /* createFriendProfileVC.swift in Sources */,
+				214D53692B195874006BC0DB /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBCN55FTP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamAlgeria/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -415,6 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QBCN55FTP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TeamAlgeria/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
