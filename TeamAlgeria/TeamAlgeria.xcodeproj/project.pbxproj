@@ -12,6 +12,10 @@
 		214D53682B195874006BC0DB /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53632B195874006BC0DB /* ChatMessage.swift */; };
 		214D53692B195874006BC0DB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53642B195874006BC0DB /* MapViewController.swift */; };
 		214D536A2B195874006BC0DB /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53652B195874006BC0DB /* MatchViewController.swift */; };
+		215DFBFD2B1A634500E04AE3 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFBFC2B1A634500E04AE3 /* ChatSession.swift */; };
+		215DFC072B1A84B600E04AE3 /* ChatDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFC062B1A84B600E04AE3 /* ChatDetailedViewController.swift */; };
+		215DFC092B1A8CB700E04AE3 /* InMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */; };
+		215DFC0B2B1A965600E04AE3 /* OutMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */; };
 		599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667732B12CBCD00E99F6D /* firebaseViewController.swift */; };
 		5996677A2B18002B00E99F6D /* createMainProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667792B18002B00E99F6D /* createMainProfileVC.swift */; };
 		5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5996677B2B18004800E99F6D /* createDatingProfileVC.swift */; };
@@ -53,6 +57,10 @@
 		214D53632B195874006BC0DB /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		214D53642B195874006BC0DB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		214D53652B195874006BC0DB /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		215DFBFC2B1A634500E04AE3 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
+		215DFC062B1A84B600E04AE3 /* ChatDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailedViewController.swift; sourceTree = "<group>"; };
+		215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMessageCell.swift; sourceTree = "<group>"; };
+		215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMessageCell.swift; sourceTree = "<group>"; };
 		599667732B12CBCD00E99F6D /* firebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseViewController.swift; sourceTree = "<group>"; };
 		599667792B18002B00E99F6D /* createMainProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createMainProfileVC.swift; sourceTree = "<group>"; };
 		5996677B2B18004800E99F6D /* createDatingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDatingProfileVC.swift; sourceTree = "<group>"; };
@@ -133,12 +141,16 @@
 				214D53652B195874006BC0DB /* MatchViewController.swift */,
 				214D53612B195874006BC0DB /* MessagingViewController.swift */,
 				214D53622B195874006BC0DB /* ChatTableViewCell.swift */,
+				215DFC062B1A84B600E04AE3 /* ChatDetailedViewController.swift */,
+				215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */,
+				215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */,
+				215DFBFC2B1A634500E04AE3 /* ChatSession.swift */,
 				214D53632B195874006BC0DB /* ChatMessage.swift */,
-				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
-				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
-				6C0398252B0578D70038CE92 /* ViewController.swift */,
 				6C0398272B0578D70038CE92 /* Main.storyboard */,
 				6C03982A2B0578DA0038CE92 /* Assets.xcassets */,
+				6C0398252B0578D70038CE92 /* ViewController.swift */,
+				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
+				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
 				6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */,
 				6C03982F2B0578DA0038CE92 /* Info.plist */,
 				599667732B12CBCD00E99F6D /* firebaseViewController.swift */,
@@ -254,15 +266,19 @@
 				214D53682B195874006BC0DB /* ChatMessage.swift in Sources */,
 				599667842B18064300E99F6D /* UserProfile.swift in Sources */,
 				6C0398222B0578D70038CE92 /* AppDelegate.swift in Sources */,
+				215DFBFD2B1A634500E04AE3 /* ChatSession.swift in Sources */,
 				214D53662B195874006BC0DB /* MessagingViewController.swift in Sources */,
 				5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */,
 				599667822B18023300E99F6D /* createPhotosBioProfileVC.swift in Sources */,
+				215DFC0B2B1A965600E04AE3 /* OutMessageCell.swift in Sources */,
 				599667802B18007400E99F6D /* createStudyProfileVC.swift in Sources */,
 				214D536A2B195874006BC0DB /* MatchViewController.swift in Sources */,
 				6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */,
+				215DFC092B1A8CB700E04AE3 /* InMessageCell.swift in Sources */,
 				214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */,
 				599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */,
 				5996677E2B18005F00E99F6D /* createFriendProfileVC.swift in Sources */,
+				215DFC072B1A84B600E04AE3 /* ChatDetailedViewController.swift in Sources */,
 				214D53692B195874006BC0DB /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

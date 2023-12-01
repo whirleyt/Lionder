@@ -13,11 +13,19 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     
-    func configure(with message: ChatMessage) {
-        nameLabel.text = message.name
-        lastMessageLabel.text = message.lastMessage
-        timeLabel.text = message.time
-        profileImageView.image = UIImage(named: message.profileImageName)
+    func configure(with chatSession: ChatSession) {
+        nameLabel.text = chatSession.senderName
+        lastMessageLabel.text = chatSession.chatMessages.last?.content
+
+        if let lastMessage = chatSession.chatMessages.last {
+            lastMessageLabel.text = lastMessage.content
+
+            let date = Date(timeIntervalSince1970: lastMessage.timestamp / 1000)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+            timeLabel.text = dateFormatter.string(from: date)
+        }
+        profileImageView.image = UIImage(named: chatSession.profileImageName)
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
     }
