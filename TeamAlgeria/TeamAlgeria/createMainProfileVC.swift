@@ -129,6 +129,7 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDa
         pronouns: "",
         password: "",
         school: "",
+        images: [],
         bio: "",
         sexualPreferences: "",
         agePreferences: "",

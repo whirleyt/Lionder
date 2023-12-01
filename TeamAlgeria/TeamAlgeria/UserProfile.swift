@@ -14,6 +14,7 @@ struct UserProfile {
       var pronouns: String
       var password: String
       var school: String
+      var images: [UIImage]
       var bio: String
       var sexualPreferences: String
       var agePreferences: String

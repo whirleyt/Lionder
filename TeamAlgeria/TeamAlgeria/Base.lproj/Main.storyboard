@@ -211,14 +211,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g9-3g-zel">
-                                <rect key="frame" x="138" y="125" width="117" height="46"/>
+                                <rect key="frame" x="136" y="125" width="121" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" placeholder="Add Bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8c-uJ-7g3">
-                                <rect key="frame" x="106" y="526" width="181" height="34"/>
+                                <rect key="frame" x="99" y="547" width="181" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="bio"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
@@ -236,6 +236,66 @@
                                     <segue destination="MQO-EO-YNv" kind="show" id="oah-PX-9zX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZG5-4j-LqL">
+                                <rect key="frame" x="221" y="201" width="36" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="+">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectImageTapped:" destination="3nf-7C-6w2" eventType="touchUpInside" id="ISe-wZ-79b"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhM-iH-ctD">
+                                <rect key="frame" x="101" y="179" width="92" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JAC-XK-IKF">
+                                <rect key="frame" x="101" y="270" width="92" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DVX-Kj-Y4a">
+                                <rect key="frame" x="101" y="358" width="92" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJh-wd-uFR">
+                                <rect key="frame" x="101" y="443" width="92" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJR-vf-n6k">
+                                <rect key="frame" x="221" y="290" width="36" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="+">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectImageTapped:" destination="3nf-7C-6w2" eventType="touchUpInside" id="qaA-5g-RY9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpv-oT-CeT">
+                                <rect key="frame" x="221" y="376" width="36" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="+">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectImageTapped:" destination="3nf-7C-6w2" eventType="touchUpInside" id="kgV-Cx-to9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-2k-Ibj">
+                                <rect key="frame" x="221" y="461" width="36" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="+">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectImageTapped:" destination="3nf-7C-6w2" eventType="touchUpInside" id="u0w-PI-kuW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fjc-Ge-RC7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -243,6 +303,14 @@
                     <navigationItem key="navigationItem" id="QLt-ic-bdW"/>
                     <connections>
                         <outlet property="bio" destination="l8c-uJ-7g3" id="NTV-i8-xoa"/>
+                        <outletCollection property="selectImageButtons" destination="ZG5-4j-LqL" collectionClass="NSMutableArray" id="2UQ-1n-My8"/>
+                        <outletCollection property="imageViews" destination="rhM-iH-ctD" collectionClass="NSMutableArray" id="kmU-E8-Ie0"/>
+                        <outletCollection property="imageViews" destination="JAC-XK-IKF" collectionClass="NSMutableArray" id="FEU-M0-zai"/>
+                        <outletCollection property="imageViews" destination="DVX-Kj-Y4a" collectionClass="NSMutableArray" id="q1q-gf-xYT"/>
+                        <outletCollection property="imageViews" destination="oJh-wd-uFR" collectionClass="NSMutableArray" id="JuK-T5-hMX"/>
+                        <outletCollection property="selectImageButtons" destination="WJR-vf-n6k" collectionClass="NSMutableArray" id="Ea2-JP-PA2"/>
+                        <outletCollection property="selectImageButtons" destination="jpv-oT-CeT" collectionClass="NSMutableArray" id="BFg-fy-uMj"/>
+                        <outletCollection property="selectImageButtons" destination="nwc-2k-Ibj" collectionClass="NSMutableArray" id="umh-oy-PbE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vp0-2b-0KY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -356,6 +424,10 @@
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-YS-5cQ">
+                                <rect key="frame" x="117" y="179" width="159" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tdg-0B-8Sh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -364,6 +436,7 @@
                     <connections>
                         <outlet property="clubs" destination="1cK-lh-HKA" id="Phx-0b-ges"/>
                         <outlet property="extracurriculars" destination="eaT-da-6a4" id="NWo-ih-nbR"/>
+                        <outlet property="imageView" destination="gWP-YS-5cQ" id="Ti7-cZ-5rF"/>
                         <outlet property="interests" destination="vvo-wQ-UZR" id="pTT-cv-lH8"/>
                     </connections>
                 </viewController>
