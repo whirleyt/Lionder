@@ -766,6 +766,9 @@
                                 <rect key="frame" x="313.66666666666669" y="735" width="63.333333333333314" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="JhG-3g-cqb" eventType="touchUpInside" id="bHi-rf-WNT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tqg-3u-YwX"/>

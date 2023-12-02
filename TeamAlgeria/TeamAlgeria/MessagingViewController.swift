@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MessagingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,10 +20,10 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     var chatSessions: [ChatSession] = [
-        ChatSession(senderId: "t1", senderName: "Eve", profileImageName: "Eve-0", chatMessages: [ChatMessage(content: "I've just enrolled in the COMS4995 iOS App Development course. I'm a bit nervous since I don't have much background in programming. Any tips on how to prepare?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(content: "That's great news! Don't worry too much about your current skill level. These courses are designed to guide you from the basics. However, a little preparation can go a long way. Have you tried any online coding platforms?", timestamp: 1672527610000, isOutgoing: false), ChatMessage(content: "Not yet. Do you think platforms like Codecademy or Udemy would help?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(content: "Absolutely! They offer beginner courses in Swift, which is the programming language you'll use for iOS development. Getting a head start in understanding Swift's syntax and basic concepts will make your initial classes much easier.", timestamp: 1672527610000, isOutgoing: false) ] ),
-        ChatSession(senderId: "t1", senderName: "Fred", profileImageName: "Fred-0", chatMessages: [ChatMessage(content: "iOS development isn’t just about coding; it’s about creating a user experience. Apple's Human Interface Guidelines are a great resource to understand the principles of good iOS app design. Also, familiarizing yourself with tools like Sketch or Adobe XD can be beneficial, though many UI designs in iOS are done directly in Xcode", timestamp: 1672527700000, isOutgoing: false), ChatMessage(content: "I see. I guess I have a lot to learn. What about the practical side of things? I don't want to be all theory and no practice.", timestamp: 1672527810000, isOutgoing: true)] ),
+        ChatSession(senderId: "t1", sessionId: "t1", senderName: "Eve", profileImageName: "Eve-0", chatMessages: [ChatMessage(messageId: "m1", senderId: Auth.auth().currentUser?.uid ?? "t1", content: "I've just enrolled in the COMS4995 iOS App Development course. I'm a bit nervous since I don't have much background in programming. Any tips on how to prepare?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(messageId: "m2", senderId: "t2", content: "That's great news! Don't worry too much about your current skill level. These courses are designed to guide you from the basics. However, a little preparation can go a long way. Have you tried any online coding platforms?", timestamp: 1672527610000, isOutgoing: false), ChatMessage(messageId: "m3", senderId: Auth.auth().currentUser?.uid ?? "t1", content: "Not yet. Do you think platforms like Codecademy or Udemy would help?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(messageId: "m4", senderId: "t2", content: "Absolutely! They offer beginner courses in Swift, which is the programming language you'll use for iOS development. Getting a head start in understanding Swift's syntax and basic concepts will make your initial classes much easier.", timestamp: 1672527610000, isOutgoing: false) ] ),
         ]
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
