@@ -122,27 +122,11 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDa
         view.endEditing(true)
     }
 
-    var userProfile: UserProfile? = UserProfile(
-        name: "",
-        email: "",
-        gender: "",
-        pronouns: "",
-        password: "",
-        school: "",
-        images: [],
-        bio: "",
-        sexualPreferences: "",
-        agePreferences: "",
-        interests: "",
-        clubs: "",
-        extracurriculars: "",
-        major: "",
-        minor: "",
-        classes: ""
-    )
-
+    var userProfile: UserProfile?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        userProfile = UserProfile()
         password.isSecureTextEntry = true
         name?.delegate = self
         email?.delegate = self
@@ -198,6 +182,7 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDa
         }
         if let destination = segue.destination as? createPhotosBioProfileVC {
             self.userProfile?.pronouns = pronouns.text ?? ""
+            self.userProfile?.password = "secret stored in auth"
             destination.userProfile = self.userProfile
         }
     }

@@ -41,7 +41,7 @@ class createFriendProfileVC: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            let userRef = db.collection("user").document(email).collection("images").document("image1")
+            let userRef = db.collection("user").document(email).collection("images").document("image0")
 
             userRef.getDocument { (document, error) in
                 if let document = document, document.exists {
