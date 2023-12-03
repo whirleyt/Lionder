@@ -32,10 +32,19 @@ class firebaseViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.present(alert, animated: true)
             } else {
-//                self.performSegue(withIdentifier: "homePageSegue", sender: nil)
                 print("Login Successful")
+                
+                if let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let window = windowScene.windows.first {
+                        window.rootViewController = tabBarController
+                        window.makeKeyAndVisible()
+                        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+                    }
                 }
+
             }
+        }
     }
 
     override func viewDidLoad() {
