@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211781232B1C252D0077C2ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211781222B1C252D0077C2ED /* Assets.xcassets */; };
+		211781252B1C25400077C2ED /* defaultProfilePic.png in Resources */ = {isa = PBXBuildFile; fileRef = 211781242B1C25400077C2ED /* defaultProfilePic.png */; };
 		214D53662B195874006BC0DB /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53612B195874006BC0DB /* MessagingViewController.swift */; };
 		214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53622B195874006BC0DB /* ChatTableViewCell.swift */; };
 		214D53682B195874006BC0DB /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D53632B195874006BC0DB /* ChatMessage.swift */; };
@@ -48,11 +50,12 @@
 		6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398232B0578D70038CE92 /* SceneDelegate.swift */; };
 		6C0398262B0578D70038CE92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398252B0578D70038CE92 /* ViewController.swift */; };
 		6C0398292B0578D70038CE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0398272B0578D70038CE92 /* Main.storyboard */; };
-		6C03982B2B0578DA0038CE92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982A2B0578DA0038CE92 /* Assets.xcassets */; };
 		6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211781222B1C252D0077C2ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		211781242B1C25400077C2ED /* defaultProfilePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultProfilePic.png; path = Assets.xcassets/defaultProfilePic.png; sourceTree = "<group>"; };
 		214D53612B195874006BC0DB /* MessagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		214D53622B195874006BC0DB /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		214D53632B195874006BC0DB /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		6C0398232B0578D70038CE92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6C0398252B0578D70038CE92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C0398282B0578D70038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6C03982A2B0578DA0038CE92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C03982D2B0578DA0038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C03982F2B0578DA0038CE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,13 +145,14 @@
 				214D53652B195874006BC0DB /* MatchViewController.swift */,
 				214D53612B195874006BC0DB /* MessagingViewController.swift */,
 				214D53622B195874006BC0DB /* ChatTableViewCell.swift */,
+				211781242B1C25400077C2ED /* defaultProfilePic.png */,
+				211781222B1C252D0077C2ED /* Assets.xcassets */,
 				215DFC062B1A84B600E04AE3 /* ChatDetailedViewController.swift */,
 				215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */,
 				215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */,
 				215DFBFC2B1A634500E04AE3 /* ChatSession.swift */,
 				214D53632B195874006BC0DB /* ChatMessage.swift */,
 				6C0398272B0578D70038CE92 /* Main.storyboard */,
-				6C03982A2B0578DA0038CE92 /* Assets.xcassets */,
 				6C0398252B0578D70038CE92 /* ViewController.swift */,
 				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
 				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
@@ -251,9 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */,
+				211781252B1C25400077C2ED /* defaultProfilePic.png in Resources */,
 				59D991DF2B0AF80E00A5B37E /* GoogleService-Info.plist in Resources */,
-				6C03982B2B0578DA0038CE92 /* Assets.xcassets in Resources */,
 				6C0398292B0578D70038CE92 /* Main.storyboard in Resources */,
+				211781232B1C252D0077C2ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
