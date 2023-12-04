@@ -128,6 +128,7 @@ class createMainProfileVC: UIViewController, UITextFieldDelegate, UIPickerViewDa
         super.viewDidLoad()
         userProfile = UserProfile()
         password.isSecureTextEntry = true
+        email.autocorrectionType = .no
         name?.delegate = self
         email?.delegate = self
         password?.delegate = self
