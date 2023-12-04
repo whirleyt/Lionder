@@ -23,9 +23,31 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         setupProfileImageView()
         
         fetchMessages()
+        
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {}
+    @objc func keyboardWillHide(notification: NSNotification) {}
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func scrollToLastMessage(animated: Bool) {
+        guard let chatMessages = chatSession?.chatMessages, !chatMessages.isEmpty else {
+            return
+        }
+        
+        let lastRow = chatMessages.count - 1
+        let indexPath = IndexPath(row: lastRow, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
     }
 
     private func setupProfileImageView() {
