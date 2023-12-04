@@ -45,6 +45,15 @@ class createStudyProfileVC: UIViewController, UITextFieldDelegate  {
         guard let sanitizedEmail = userProfile?.email.replacingOccurrences(of: ".", with: "_dot_") else { return
         }
         self.ref.child("user").child(sanitizedEmail).setValue(userProfileDict)
+        
+        if let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                window.rootViewController = tabBarController
+                window.makeKeyAndVisible()
+                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+            }
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
