@@ -34,39 +34,35 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
     
     private func initializeDummyData() {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-
+        // let testUser1Id = "9PaKW4qI5eaKbhlkEY32gIuBGQn1" // rw1
+        let testUser2Id = "I01Q0MmkuNeF6qkoEYv8DK2YgeD3" // rw2
+        let testUser3Id = "qoI9cqm8j1bKr4q2fSYnKbiNZgp1" // rw5
+        let testUser4Id = "Xq2Hl6XOR6ReyNcad7JVLrL0ZwA2" // rw4
 
         let session1: [String: Any] = [
             "sessionId": "session1",
             "user1Id": currentUserId,
-            "user2Id": "user456",
+            "user2Id": testUser2Id,
             "chatMessages": []
         ]
 
         let session2: [String: Any] = [
             "sessionId": "session2",
             "user1Id": currentUserId,
-            "user2Id": "user321",
+            "user2Id": testUser3Id,
             "chatMessages": []
         ]
         let session3: [String: Any] = [
             "sessionId": "session3",
             "user1Id": currentUserId,
-            "user2Id": "user888",
+            "user2Id": testUser4Id,
             "chatMessages": []
         ]
-        let session4: [String: Any] = [
-            "sessionId": "session4",
-            "user1Id": currentUserId,
-            "user2Id": "user999",
-            "chatMessages": []
-        ]
-
+        
         chatSessions = [
-            ChatSession(sessionId: "session1", user1Id: currentUserId, user2Id: "user456", chatMessages: []),
-            ChatSession(sessionId: "session2", user1Id: currentUserId, user2Id: "user321", chatMessages: []),
-            ChatSession(sessionId: "session3", user1Id: currentUserId, user2Id: "user888", chatMessages: []),
-            ChatSession(sessionId: "session4", user1Id: currentUserId, user2Id: "user999", chatMessages: [])
+            ChatSession(sessionId: "session1", user1Id: currentUserId, user2Id: testUser2Id, chatMessages: []),
+            ChatSession(sessionId: "session2", user1Id: currentUserId, user2Id: testUser3Id, chatMessages: []),
+            ChatSession(sessionId: "session3", user1Id: currentUserId, user2Id: testUser4Id, chatMessages: [])
         ]
 
         // Reference to the Firebase database location where chat sessions are stored
@@ -76,7 +72,6 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         sessionsRef.child("session1").setValue(session1)
         sessionsRef.child("session2").setValue(session2)
         sessionsRef.child("session3").setValue(session3)
-        sessionsRef.child("session4").setValue(session4)
 
         DispatchQueue.main.async {
             self.tableView.reloadData()
