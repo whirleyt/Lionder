@@ -15,7 +15,7 @@ class InMessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        bubbleBackgroundView.backgroundColor = UIColor.systemBlue
+        bubbleBackgroundView.backgroundColor = UIColor.lightGray
         contentView.sendSubviewToBack(bubbleBackgroundView)
         
         bubbleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
