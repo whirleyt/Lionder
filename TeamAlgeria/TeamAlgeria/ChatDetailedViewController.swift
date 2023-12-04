@@ -14,8 +14,10 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageInputField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+  
+    @IBOutlet weak var sendButtonBottom: NSLayoutConstraint!
     let currentUserId = Auth.auth().currentUser?.uid
-
+    
     var chatSession: ChatSession?
 
     override func viewDidLoad() {
@@ -25,16 +27,30 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.separatorStyle = .none
         setupProfileImageView()
-        
         fetchMessages()
+        sendButtonBottom.constant = 0
         
     
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {}
-    @objc func keyboardWillHide(notification: NSNotification) {}
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            UIView.animate(withDuration: 0.3) {
+                self.sendButtonBottom.constant = keyboardHeight - self.view.safeAreaInsets.bottom + 6
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.sendButtonBottom.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)

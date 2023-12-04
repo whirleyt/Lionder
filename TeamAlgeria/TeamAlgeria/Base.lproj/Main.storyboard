@@ -771,11 +771,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HX2-gM-IFq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HX2-gM-IFq">
                                 <rect key="frame" x="16" y="124" width="360" height="598.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="2U0-FK-JEz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="360" id="2U0-FK-JEz"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InMessageCell" rowHeight="53" id="efT-Bn-ips" userLabel="In Message Cell" customClass="InMessageCell" customModule="TeamAlgeria" customModuleProvider="target">
@@ -873,16 +873,15 @@
                         <constraints>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="trailing" secondItem="HX2-gM-IFq" secondAttribute="trailing" id="2ic-1h-pgd"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="top" secondItem="GQq-2o-Nd7" secondAttribute="top" id="457-jE-0Gc"/>
-                            <constraint firstItem="4ym-Jh-fe7" firstAttribute="bottom" secondItem="GQq-2o-Nd7" secondAttribute="bottom" id="99v-Gk-S81"/>
-                            <constraint firstItem="4ym-Jh-fe7" firstAttribute="top" secondItem="HX2-gM-IFq" secondAttribute="bottom" constant="12" id="Dkq-8j-L2v"/>
+                            <constraint firstItem="Tqg-3u-YwX" firstAttribute="bottom" secondItem="4ym-Jh-fe7" secondAttribute="bottom" id="DKB-st-zhX"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="trailing" constant="12" id="H9M-lL-FIW"/>
-                            <constraint firstItem="GQq-2o-Nd7" firstAttribute="bottom" secondItem="Tqg-3u-YwX" secondAttribute="bottom" id="P2q-tu-Vep"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="trailing" secondItem="34D-Sm-nKE" secondAttribute="trailingMargin" id="XiE-in-I3M"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="top" secondItem="Zix-1f-dSl" secondAttribute="bottom" constant="12" id="Xtl-KR-Pew"/>
                             <constraint firstItem="Zix-1f-dSl" firstAttribute="top" secondItem="34D-Sm-nKE" secondAttribute="topMargin" constant="-39" id="g2S-qL-JZm"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="centerX" secondItem="Zix-1f-dSl" secondAttribute="centerX" id="jKe-DB-Xfn"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="leading" id="oAk-cM-Adf"/>
                             <constraint firstItem="Zix-1f-dSl" firstAttribute="leading" secondItem="Tqg-3u-YwX" secondAttribute="leading" constant="172" id="qQI-NZ-XXJ"/>
+                            <constraint firstItem="4ym-Jh-fe7" firstAttribute="bottom" secondItem="GQq-2o-Nd7" secondAttribute="bottom" id="rPa-bc-whZ"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="leading" secondItem="34D-Sm-nKE" secondAttribute="leadingMargin" id="t1K-vx-Xz6"/>
                         </constraints>
                     </view>
@@ -890,6 +889,7 @@
                     <connections>
                         <outlet property="messageInputField" destination="GQq-2o-Nd7" id="bzg-mP-oyh"/>
                         <outlet property="profileImageView" destination="Zix-1f-dSl" id="ug9-bE-HJa"/>
+                        <outlet property="sendButtonBottom" destination="DKB-st-zhX" id="Ndh-iD-x31"/>
                         <outlet property="tableView" destination="HX2-gM-IFq" id="kBP-dy-OeY"/>
                     </connections>
                 </viewController>
