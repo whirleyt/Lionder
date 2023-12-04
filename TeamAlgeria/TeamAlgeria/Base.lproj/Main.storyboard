@@ -749,11 +749,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="fVR-V9-Mya">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="wGG-qH-Wcr" id="ufC-jd-ecn"/>
-<<<<<<< HEAD
-                                <segue destination="Z22-AG-OTE" kind="presentation" identifier="showProfile" id="P7B-Ag-byj"/>
-=======
+
                                 <segue destination="rOz-zx-FTK" kind="show" identifier="showProfile" id="P7B-Ag-byj"/>
->>>>>>> dev
+
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -934,11 +932,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="KUo-Mr-wVG">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="WGM-6z-o1n" id="2rQ-Tv-8Nr"/>
-<<<<<<< HEAD
-                                <segue destination="Z22-AG-OTE" kind="presentation" identifier="showProfile" id="jeb-N1-nbz"/>
-=======
+
                                 <segue destination="rOz-zx-FTK" kind="show" identifier="showProfile" id="jeb-N1-nbz"/>
->>>>>>> dev
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -979,11 +974,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="YSg-CU-LQM">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="vSo-Az-FVl" id="mbh-pm-NN1"/>
-<<<<<<< HEAD
-                                <segue destination="Z22-AG-OTE" kind="presentation" identifier="showProfile" id="QuC-0m-bTj"/>
-=======
+
                                 <segue destination="rOz-zx-FTK" kind="show" identifier="showProfile" id="QuC-0m-bTj"/>
->>>>>>> dev
+
                             </connections>
                         </barButtonItem>
                     </navigationItem>
