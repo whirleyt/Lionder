@@ -26,7 +26,9 @@ class UserProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupFirebase()
+        
         databaseRef = Database.database().reference()
 
         if let currentUser = Auth.auth().currentUser {
@@ -53,8 +55,6 @@ class UserProfileVC: UIViewController {
         } else {
             print("No user is currently signed in.")
         }
-
-        setupFirebase()
 
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.clipsToBounds = true
@@ -164,4 +164,11 @@ class UserProfileVC: UIViewController {
         fetchThirdPhoto()
         fetchFourthPhoto()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MatchProfileVC {
+            destination.userProfile?.email = self.emailForDB
+        }
+    }
+
 }
