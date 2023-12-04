@@ -14,8 +14,10 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageInputField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+  
+    @IBOutlet weak var sendButtonBottom: NSLayoutConstraint!
     let currentUserId = Auth.auth().currentUser?.uid
-
+    
     var chatSession: ChatSession?
 
     override func viewDidLoad() {
@@ -23,9 +25,45 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         setupProfileImageView()
-        
         fetchMessages()
+        sendButtonBottom.constant = 0
+        
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            UIView.animate(withDuration: 0.3) {
+                self.sendButtonBottom.constant = keyboardHeight - self.view.safeAreaInsets.bottom + 6
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.sendButtonBottom.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func scrollToLastMessage(animated: Bool) {
+        guard let chatMessages = chatSession?.chatMessages, !chatMessages.isEmpty else {
+            return
+        }
+        
+        let lastRow = chatMessages.count - 1
+        let indexPath = IndexPath(row: lastRow, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
     }
 
     private func setupProfileImageView() {
