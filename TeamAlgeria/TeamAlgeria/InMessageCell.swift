@@ -15,7 +15,7 @@ class InMessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        bubbleBackgroundView.backgroundColor = UIColor.lightGray
+        bubbleBackgroundView.backgroundColor = UIColor.systemGray5
         contentView.sendSubviewToBack(bubbleBackgroundView)
         
         bubbleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,9 +30,28 @@ class InMessageCell: UITableViewCell {
         // Round the corners of the bubble
         bubbleBackgroundView.layer.cornerRadius = 15
         bubbleBackgroundView.clipsToBounds = true
+        
+        updateTextColor()
     }
     
     func configure(with message: ChatMessage) {
         messageLabel.text = message.content
+        updateTextColor()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle {
+            updateTextColor()
+        }
+    }
+    
+    private func updateTextColor() {
+        if traitCollection.userInterfaceStyle == .dark {
+            messageLabel.textColor = .white
+        } else {
+            messageLabel.textColor = .black
+        }
     }
 }

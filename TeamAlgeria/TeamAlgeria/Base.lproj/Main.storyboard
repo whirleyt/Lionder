@@ -861,7 +861,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zix-1f-dSl">
-                                <rect key="frame" x="172" y="64" width="48" height="48"/>
+                                <rect key="frame" x="172" y="61" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="QgZ-kL-zKx"/>
                                     <constraint firstAttribute="height" constant="48" id="eHY-3Y-olI"/>
@@ -876,8 +876,8 @@
                             <constraint firstItem="Tqg-3u-YwX" firstAttribute="bottom" secondItem="4ym-Jh-fe7" secondAttribute="bottom" id="DKB-st-zhX"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="trailing" constant="12" id="H9M-lL-FIW"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="trailing" secondItem="34D-Sm-nKE" secondAttribute="trailingMargin" id="XiE-in-I3M"/>
-                            <constraint firstItem="HX2-gM-IFq" firstAttribute="top" secondItem="Zix-1f-dSl" secondAttribute="bottom" constant="12" id="Xtl-KR-Pew"/>
-                            <constraint firstItem="Zix-1f-dSl" firstAttribute="top" secondItem="34D-Sm-nKE" secondAttribute="topMargin" constant="-39" id="g2S-qL-JZm"/>
+                            <constraint firstItem="HX2-gM-IFq" firstAttribute="top" secondItem="Zix-1f-dSl" secondAttribute="bottom" constant="16" id="Xtl-KR-Pew"/>
+                            <constraint firstItem="Zix-1f-dSl" firstAttribute="top" secondItem="34D-Sm-nKE" secondAttribute="topMargin" constant="-42" id="g2S-qL-JZm"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="centerX" secondItem="Zix-1f-dSl" secondAttribute="centerX" id="jKe-DB-Xfn"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="leading" id="oAk-cM-Adf"/>
                             <constraint firstItem="Zix-1f-dSl" firstAttribute="leading" secondItem="Tqg-3u-YwX" secondAttribute="leading" constant="172" id="qQI-NZ-XXJ"/>
