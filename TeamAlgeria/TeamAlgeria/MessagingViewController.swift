@@ -27,7 +27,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        initializeDummyData()
+        //initializeDummyData()
         fetchChatSessions()
     }
 
