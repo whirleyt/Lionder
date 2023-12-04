@@ -17,6 +17,7 @@
 		215DFC092B1A8CB700E04AE3 /* InMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */; };
 		215DFC0B2B1A965600E04AE3 /* OutMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */; };
 		59126B732B1BC21900D7CA2F /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59126B722B1BC21900D7CA2F /* UserProfileVC.swift */; };
+		59126B772B1D58F700D7CA2F /* MatchProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59126B762B1D58F700D7CA2F /* MatchProfileVC.swift */; };
 		599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667732B12CBCD00E99F6D /* firebaseViewController.swift */; };
 		5996677A2B18002B00E99F6D /* createMainProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599667792B18002B00E99F6D /* createMainProfileVC.swift */; };
 		5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5996677B2B18004800E99F6D /* createDatingProfileVC.swift */; };
@@ -63,6 +64,7 @@
 		215DFC082B1A8CB700E04AE3 /* InMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMessageCell.swift; sourceTree = "<group>"; };
 		215DFC0A2B1A965600E04AE3 /* OutMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutMessageCell.swift; sourceTree = "<group>"; };
 		59126B722B1BC21900D7CA2F /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		59126B762B1D58F700D7CA2F /* MatchProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchProfileVC.swift; sourceTree = "<group>"; };
 		599667732B12CBCD00E99F6D /* firebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseViewController.swift; sourceTree = "<group>"; };
 		599667792B18002B00E99F6D /* createMainProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createMainProfileVC.swift; sourceTree = "<group>"; };
 		5996677B2B18004800E99F6D /* createDatingProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createDatingProfileVC.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				599667812B18023300E99F6D /* createPhotosBioProfileVC.swift */,
 				599667832B18064300E99F6D /* UserProfile.swift */,
 				59126B722B1BC21900D7CA2F /* UserProfileVC.swift */,
+				59126B762B1D58F700D7CA2F /* MatchProfileVC.swift */,
 			);
 			path = TeamAlgeria;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C0398262B0578D70038CE92 /* ViewController.swift in Sources */,
+				59126B772B1D58F700D7CA2F /* MatchProfileVC.swift in Sources */,
 				5996677A2B18002B00E99F6D /* createMainProfileVC.swift in Sources */,
 				214D53682B195874006BC0DB /* ChatMessage.swift in Sources */,
 				59126B732B1BC21900D7CA2F /* UserProfileVC.swift in Sources */,
