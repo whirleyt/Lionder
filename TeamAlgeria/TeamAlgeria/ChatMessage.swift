@@ -23,33 +23,22 @@ struct ChatMessage: Codable {
     }
 }
 
-extension ChatMessage {
-    func asDictionary() -> [String: Any] {
-        do {
-            let data = try JSONEncoder().encode(self)
-            guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
-                return [:]
-            }
-            return dictionary
-        } catch {
-            print("Error encoding ChatMessage: \(error)")
-            return [:]
-        }
-    }
-}
 
 extension ChatMessage {
     init?(snapshot: DataSnapshot, currentUserId: String) {
         guard
             let value = snapshot.value as? [String: AnyObject],
-            let jsonData = try? JSONSerialization.data(withJSONObject: value),
-            var message = try? JSONDecoder().decode(ChatMessage.self, from: jsonData)
-        else {
+            let senderId = value["senderId"] as? String,
+            let content = value["content"] as? String,
+            let timestamp = value["timestamp"] as? TimeInterval else {
             return nil
         }
-        message.messageId = snapshot.key
-        message.isOutgoing = message.senderId == currentUserId
-        self = message
+
+        self.messageId = snapshot.key
+        self.senderId = senderId
+        self.content = content
+        self.timestamp = timestamp
+        self.isOutgoing = senderId == currentUserId
     }
 }
 

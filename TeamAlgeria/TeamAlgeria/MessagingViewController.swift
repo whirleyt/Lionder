@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class MessagingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,47 +20,143 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         performSegue(withIdentifier: "showProfile", sender: self)
     }
     
-    var chatSessions: [ChatSession] = [
-        ChatSession(senderId: "t1", sessionId: "t1", senderName: "Eve", profileImageName: "Eve-0", chatMessages: [ChatMessage(messageId: "m1", senderId: Auth.auth().currentUser?.uid ?? "t1", content: "I've just enrolled in the COMS4995 iOS App Development course. I'm a bit nervous since I don't have much background in programming. Any tips on how to prepare?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(messageId: "m2", senderId: "t2", content: "That's great news! Don't worry too much about your current skill level. These courses are designed to guide you from the basics. However, a little preparation can go a long way. Have you tried any online coding platforms?", timestamp: 1672527610000, isOutgoing: false), ChatMessage(messageId: "m3", senderId: Auth.auth().currentUser?.uid ?? "t1", content: "Not yet. Do you think platforms like Codecademy or Udemy would help?", timestamp: 1672527600000, isOutgoing: true), ChatMessage(messageId: "m4", senderId: "t2", content: "Absolutely! They offer beginner courses in Swift, which is the programming language you'll use for iOS development. Getting a head start in understanding Swift's syntax and basic concepts will make your initial classes much easier.", timestamp: 1672527610000, isOutgoing: false) ] ),
-        ]
+    var chatSessions: [ChatSession] = []
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        initializeDummyData()
+        fetchChatSessions()
     }
+
+    
+    private func initializeDummyData() {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+        // let testUser1Id = "9PaKW4qI5eaKbhlkEY32gIuBGQn1" // rw1
+        let testUser2Id = "I01Q0MmkuNeF6qkoEYv8DK2YgeD3" // rw2
+        let testUser3Id = "qoI9cqm8j1bKr4q2fSYnKbiNZgp1" // rw5
+        let testUser4Id = "Xq2Hl6XOR6ReyNcad7JVLrL0ZwA2" // rw4
+
+        let session1: [String: Any] = [
+            "sessionId": "session1",
+            "user1Id": currentUserId,
+            "user2Id": testUser2Id,
+            "chatMessages": []
+        ]
+
+        let session2: [String: Any] = [
+            "sessionId": "session2",
+            "user1Id": currentUserId,
+            "user2Id": testUser3Id,
+            "chatMessages": []
+        ]
+        let session3: [String: Any] = [
+            "sessionId": "session3",
+            "user1Id": currentUserId,
+            "user2Id": testUser4Id,
+            "chatMessages": []
+        ]
+        
+        chatSessions = [
+            ChatSession(sessionId: "session1", user1Id: currentUserId, user2Id: testUser2Id, chatMessages: []),
+            ChatSession(sessionId: "session2", user1Id: currentUserId, user2Id: testUser3Id, chatMessages: []),
+            ChatSession(sessionId: "session3", user1Id: currentUserId, user2Id: testUser4Id, chatMessages: [])
+        ]
+
+        // Reference to the Firebase database location where chat sessions are stored
+        let sessionsRef = Database.database().reference().child("chatSessions")
+
+        // Uploading dummy data to Firebase
+        sessionsRef.child("session1").setValue(session1)
+        sessionsRef.child("session2").setValue(session2)
+        sessionsRef.child("session3").setValue(session3)
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
+
+
+    
+    private func fetchChatSessions() {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+
+        let sessionsRef = Database.database().reference().child("chatSessions")
+        sessionsRef.observe(.value, with: { [weak self] snapshot in
+            var newChatSessions: [ChatSession] = []
+
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot {
+                    // Debugging: Print out the raw snapshot value
+                    print("Session Snapshot: \(snapshot)")
+
+                    if let chatSession = ChatSession(snapshot: snapshot),
+                       chatSession.user1Id == currentUserId || chatSession.user2Id == currentUserId {
+                        newChatSessions.append(chatSession)
+                    }
+                }
+            }
+
+            DispatchQueue.main.async {
+                self?.chatSessions = newChatSessions
+                self?.tableView.reloadData()
+            }
+        })
+    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatSessions.count
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showChatDetail" {
-            if let chatDetailVC = segue.destination as? ChatDetailViewController,
-               let selectedChatSession = sender as? ChatSession {
-                chatDetailVC.chatSession = selectedChatSession
-            }
+        if segue.identifier == "showChatDetail",
+           let chatDetailVC = segue.destination as? ChatDetailViewController,
+           let selectedChatSession = sender as? ChatSession {
+            chatDetailVC.chatSession = selectedChatSession
         }
     }
-    
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCell", for: indexPath) as! ChatTableViewCell
         let chatSession = chatSessions[indexPath.row]
-        
-        cell.nameLabel.text = chatSession.senderName
+
         if let lastMessage = chatSession.chatMessages.last {
             cell.lastMessageLabel.text = lastMessage.content
-
-            let date = Date(timeIntervalSince1970: lastMessage.timestamp / 1000)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
-            cell.timeLabel.text = dateFormatter.string(from: date)
+            cell.timeLabel.text = formatTimestamp(lastMessage.timestamp)
+        } else {
+            cell.lastMessageLabel.text = "Start texting!"
         }
-        cell.profileImageView.image = UIImage(named: chatSession.profileImageName)
+        
+        cell.profileImageView.image = UIImage(named: "defaultProfilePic")
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+        cell.profileImageView.clipsToBounds = true
 
         return cell
+    }
+    
+    private func formatTimestamp(_ timestamp: TimeInterval) -> String {
+        let messageDate = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+
+        if calendar.isDateInToday(messageDate) {
+            dateFormatter.dateFormat = "HH:mm"
+        } else if isDateInThisWeek(messageDate, using: calendar) {
+            dateFormatter.dateFormat = "EEEE" // Day of the week
+        } else {
+            dateFormatter.dateFormat = "MM/dd" // Month and day
+        }
+
+        return dateFormatter.string(from: messageDate)
+    }
+
+    private func isDateInThisWeek(_ date: Date, using calendar: Calendar) -> Bool {
+        return calendar.isDate(date, equalTo: Date(), toGranularity: .weekOfYear)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

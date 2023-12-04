@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXA-SW-bro">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXA-SW-bro">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -532,11 +532,11 @@
             <objects>
                 <viewController id="Tke-Lp-N8q" userLabel="Calendar" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ljl-0m-ttl">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-Eo-uJe">
-                                <rect key="frame" x="162" y="411" width="69" height="20"/>
+                                <rect key="frame" x="162" y="416" width="69" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -560,7 +560,7 @@
             <objects>
                 <viewController id="rOz-zx-FTK" userLabel="Profile" customClass="UserProfileVC" customModule="TeamAlgeria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFX-Xe-EMy">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-ja-oLT">
@@ -695,7 +695,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBh-Ut-WPM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBh-Ut-WPM">
                                                     <rect key="frame" x="274" y="21" width="80" height="38"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="YCy-r2-pcx"/>
@@ -743,7 +743,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Calendar" id="neZ-uj-RaO">
                             <connections>
                                 <action selector="calendarButtonTapped:" destination="wGG-qH-Wcr" id="JiW-nd-kNv"/>
-                                <segue destination="Tke-Lp-N8q" kind="presentation" identifier="showCalendar" id="YkG-RV-PLQ"/>
+                                <segue destination="Tke-Lp-N8q" kind="show" identifier="showCalendar" id="YkG-RV-PLQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="fVR-V9-Mya">
@@ -766,22 +766,22 @@
         <scene sceneID="gpW-dh-hJF">
             <objects>
                 <viewController id="JhG-3g-cqb" userLabel="ChatDetailedView" customClass="ChatDetailViewController" customModule="TeamAlgeria" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="34D-Sm-nKE">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="34D-Sm-nKE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HX2-gM-IFq">
-                                <rect key="frame" x="16" y="115" width="361" height="588"/>
+                                <rect key="frame" x="16" y="115" width="360" height="588"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="588" id="2U0-FK-JEz"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InMessageCell" rowHeight="53" id="efT-Bn-ips" userLabel="In Message Cell" customClass="InMessageCell" customModule="TeamAlgeria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="53"/>
+                                        <rect key="frame" x="0.0" y="50" width="360" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="efT-Bn-ips" id="OFm-Cb-wpT">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qua-VF-s3T">
@@ -803,14 +803,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OutMessageCell" rowHeight="65" id="8HU-lT-QOq" userLabel="Out Message Cell" customClass="OutMessageCell" customModule="TeamAlgeria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="103" width="361" height="65"/>
+                                        <rect key="frame" x="0.0" y="103" width="360" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8HU-lT-QOq" id="iGR-kd-8zA">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG1-uE-5SG">
-                                                    <rect key="frame" x="252" y="8" width="101" height="49"/>
+                                                    <rect key="frame" x="251" y="8" width="101" height="49"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -829,22 +829,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zix-1f-dSl">
-                                <rect key="frame" x="172" y="59" width="49" height="48"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQq-2o-Nd7">
-                                <rect key="frame" x="16" y="735" width="285.66666666666669" height="34"/>
+                                <rect key="frame" x="16" y="735" width="284.66666666666669" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ym-Jh-fe7">
-                                <rect key="frame" x="313.66666666666669" y="735" width="63.333333333333314" height="34"/>
+                                <rect key="frame" x="312.66666666666669" y="735" width="63.333333333333314" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Send"/>
                                 <connections>
                                     <action selector="sendButtonTapped:" destination="JhG-3g-cqb" eventType="touchUpInside" id="bHi-rf-WNT"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zix-1f-dSl">
+                                <rect key="frame" x="172" y="64" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="QgZ-kL-zKx"/>
+                                    <constraint firstAttribute="height" constant="48" id="eHY-3Y-olI"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tqg-3u-YwX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -855,14 +859,15 @@
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="top" secondItem="HX2-gM-IFq" secondAttribute="bottom" constant="32" id="Dkq-8j-L2v"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="trailing" constant="12" id="H9M-lL-FIW"/>
                             <constraint firstItem="4ym-Jh-fe7" firstAttribute="trailing" secondItem="34D-Sm-nKE" secondAttribute="trailingMargin" id="XiE-in-I3M"/>
-                            <constraint firstItem="HX2-gM-IFq" firstAttribute="top" secondItem="Zix-1f-dSl" secondAttribute="bottom" constant="8" id="Xtl-KR-Pew"/>
-                            <constraint firstItem="Zix-1f-dSl" firstAttribute="top" secondItem="34D-Sm-nKE" secondAttribute="topMargin" constant="-44" id="g2S-qL-JZm"/>
+                            <constraint firstItem="HX2-gM-IFq" firstAttribute="top" secondItem="Zix-1f-dSl" secondAttribute="bottom" constant="3" id="Xtl-KR-Pew"/>
+                            <constraint firstItem="Zix-1f-dSl" firstAttribute="top" secondItem="34D-Sm-nKE" secondAttribute="topMargin" constant="-39" id="g2S-qL-JZm"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="centerX" secondItem="Zix-1f-dSl" secondAttribute="centerX" id="jKe-DB-Xfn"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="leading" secondItem="GQq-2o-Nd7" secondAttribute="leading" id="oAk-cM-Adf"/>
                             <constraint firstItem="Zix-1f-dSl" firstAttribute="leading" secondItem="Tqg-3u-YwX" secondAttribute="leading" constant="172" id="qQI-NZ-XXJ"/>
                             <constraint firstItem="HX2-gM-IFq" firstAttribute="leading" secondItem="34D-Sm-nKE" secondAttribute="leadingMargin" id="t1K-vx-Xz6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fRK-TN-dBO"/>
                     <connections>
                         <outlet property="messageInputField" destination="GQq-2o-Nd7" id="bzg-mP-oyh"/>
                         <outlet property="profileImageView" destination="Zix-1f-dSl" id="ug9-bE-HJa"/>
@@ -919,7 +924,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Calendar" id="Bwy-ku-2FE">
                             <connections>
                                 <action selector="calendarButtonTapped:" destination="WGM-6z-o1n" id="Caq-Nc-2pA"/>
-                                <segue destination="Tke-Lp-N8q" kind="presentation" identifier="showCalendar" id="Nhl-k8-K8Z"/>
+                                <segue destination="Tke-Lp-N8q" kind="show" identifier="showCalendar" id="Nhl-k8-K8Z"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="KUo-Mr-wVG">
@@ -960,7 +965,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Calendar" id="Awv-j2-8QR">
                             <connections>
                                 <action selector="calendarButtonTapped:" destination="vSo-Az-FVl" id="xtO-qn-59B"/>
-                                <segue destination="Tke-Lp-N8q" kind="presentation" identifier="showCalendar" id="uyv-dr-nb4"/>
+                                <segue destination="Tke-Lp-N8q" kind="show" identifier="showCalendar" id="uyv-dr-nb4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="YSg-CU-LQM">
@@ -1258,16 +1263,16 @@
     <resources>
         <image name="icon-crown" width="699" height="613"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

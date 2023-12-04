@@ -29,10 +29,10 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     private func setupProfileImageView() {
-        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        profileImageView.image = UIImage(named: "defaultProfilePic")
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
-        profileImageView.image = UIImage(named: chatSession!.profileImageName)
-        // profile image
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +63,12 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     private func fetchMessages() {
         guard let sessionId = chatSession?.sessionId,
               let currentUserId = Auth.auth().currentUser?.uid else { return }
-        let messagesRef = Database.database().reference().child("chatSessions").child(sessionId).child("messages")
+
+        // Reference to the Firebase database location where chatMessages are stored
+        let messagesRef = Database.database().reference()
+            .child("chatSessions")
+            .child(sessionId)
+            .child("chatMessages")
 
         messagesRef.observe(.value, with: { snapshot in
             var newMessages: [ChatMessage] = []
@@ -73,14 +78,15 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
                     newMessages.append(message)
                 }
             }
+
+            // Sorting messages by timestamp
             self.chatSession?.chatMessages = newMessages.sorted(by: { $0.timestamp < $1.timestamp })
+
+            // Reload the tableView and scroll to the latest message
             self.tableView.reloadData()
             self.scrollToBottom()
         })
     }
-
-
-
     
     private func scrollToBottom() {
         let lastRow = (self.chatSession?.chatMessages.count ?? 0) - 1
@@ -98,21 +104,23 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
 
+        // Reference to the Firebase database location where messages are stored
+        let messagesRef = Database.database().reference()
+            .child("chatSessions")
+            .child(sessionId)
+            .child("chatMessages")
+
+        // Create a new child with a unique key (message ID)
+        let newMessageRef = messagesRef.childByAutoId()
+        
+        // Include the unique messageId in the message data
         let messageData: [String: Any] = [
+            "messageId": newMessageRef.key!,  // Using the auto-generated key as messageId
             "senderId": senderId,
             "content": messageText,
             "timestamp": Date().timeIntervalSince1970
         ]
 
-        // Reference to the Firebase database location where messages are stored
-        let messagesRef = Database.database().reference()
-            .child("chatSessions")
-            .child(sessionId)
-            .child("messages")
-
-        // Create a new child with a unique key (message ID)
-        let newMessageRef = messagesRef.childByAutoId()
-        
         // Save the message to Firebase
         newMessageRef.setValue(messageData) { error, _ in
             if let error = error {
@@ -122,6 +130,9 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
+    
+
+
 
 
 

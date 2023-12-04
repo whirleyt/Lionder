@@ -9,26 +9,16 @@ import Foundation
 import FirebaseDatabase
 
 struct ChatSession: Codable {
-    let senderId: String
-    let sessionId: String
-    let senderName: String
-    let profileImageName: String
+    let sessionId: String?
+    let user1Id: String?
+    let user2Id: String?
     var chatMessages: [ChatMessage]
 
     enum CodingKeys: String, CodingKey {
-        case senderId
         case sessionId
-        case senderName
-        case profileImageName
+        case user1Id
+        case user2Id
         case chatMessages
-    }
-}
-
-extension ChatSession {
-    func asDictionary() -> [String: Any] {
-        let data = try! JSONEncoder().encode(self)
-        let dictionary = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-        return dictionary
     }
 }
 
@@ -36,11 +26,30 @@ extension ChatSession {
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: AnyObject],
-            let jsonData = try? JSONSerialization.data(withJSONObject: value),
-            let session = try? JSONDecoder().decode(ChatSession.self, from: jsonData)
-        else {
+            let sessionId = value["sessionId"] as? String,
+            let user1Id = value["user1Id"] as? String,
+            let user2Id = value["user2Id"] as? String else {
             return nil
         }
-        self = session
+
+        self.sessionId = sessionId
+        self.user1Id = user1Id
+        self.user2Id = user2Id
+
+        var messages = [ChatMessage]()
+        let messagesSnapshot = snapshot.childSnapshot(forPath: "chatMessages")
+        for child in messagesSnapshot.children {
+            if let messageSnapshot = child as? DataSnapshot,
+               let message = ChatMessage(snapshot: messageSnapshot, currentUserId: user1Id) {
+                messages.append(message)
+            }
+        }
+        self.chatMessages = messages
     }
 }
+
+
+
+
+
+

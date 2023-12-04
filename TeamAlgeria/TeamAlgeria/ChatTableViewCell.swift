@@ -13,20 +13,23 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     
-    func configure(with chatSession: ChatSession) {
-        nameLabel.text = chatSession.senderName
-        lastMessageLabel.text = chatSession.chatMessages.last?.content
+    private func formatTimestamp(_ timestamp: TimeInterval) -> String {
+        let messageDate = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
 
-        if let lastMessage = chatSession.chatMessages.last {
-            lastMessageLabel.text = lastMessage.content
-
-            let date = Date(timeIntervalSince1970: lastMessage.timestamp / 1000)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
-            timeLabel.text = dateFormatter.string(from: date)
+        if calendar.isDateInToday(messageDate) {
+            dateFormatter.dateFormat = "HH:mm"
+        } else if isDateInThisWeek(messageDate, using: calendar) {
+            dateFormatter.dateFormat = "EEEE" // Day of the week
+        } else {
+            dateFormatter.dateFormat = "MM/dd" // Month and day
         }
-        profileImageView.image = UIImage(named: chatSession.profileImageName)
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
-        profileImageView.clipsToBounds = true
+
+        return dateFormatter.string(from: messageDate)
+    }
+
+    private func isDateInThisWeek(_ date: Date, using calendar: Calendar) -> Bool {
+        return calendar.isDate(date, equalTo: Date(), toGranularity: .weekOfYear)
     }
 }
