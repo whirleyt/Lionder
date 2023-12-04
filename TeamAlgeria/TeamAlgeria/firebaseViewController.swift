@@ -50,5 +50,6 @@ class firebaseViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordText.isSecureTextEntry = true
+        emailText.autocorrectionType = .no
     }
 }
