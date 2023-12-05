@@ -15,10 +15,11 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var messageInputField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
   
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sendButtonBottom: NSLayoutConstraint!
     let currentUserId = Auth.auth().currentUser?.uid
-    
     var chatSession: ChatSession?
+    var emailForDB: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,33 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         fetchMessages()
         sendButtonBottom.constant = 0
         
+        if let currentUserEmail = Auth.auth().currentUser?.email {
+            // Replace characters as needed to comply with Firebase key constraints
+            // For example, replacing '.' with '_'
+            emailForDB = currentUserEmail.replacingOccurrences(of: ".", with: "_dot_")
+
+            print("Current User Email: \(emailForDB ?? "NA")")
+        } else {
+            print("No user email found")
+        }
+        
+        guard let emailForDB = emailForDB else {
+            print("User email is not available.")
+            return
+        }
+        
+        let otherUserEmail = (chatSession?.user1Id == emailForDB ? chatSession?.user2Id : chatSession?.user1Id)!
+
+        fetchUserName(email: otherUserEmail) { userName in
+            DispatchQueue.main.async { [self] in
+                if let name = userName {
+                    self.nameLabel.text = name
+                    self.nameLabel.textColor = .label
+                } else {
+                    nameLabel.text = "Unknown User"
+                }
+            }
+        }
     
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -96,7 +124,20 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
             return cell
         }
     }
+    
+    private func fetchUserName(email: String, completion: @escaping (String?) -> Void) {
+        let usersRef = Database.database().reference().child("user").child(email)
+        usersRef.observeSingleEvent(of: .value, with: { snapshot in
+            print("User data snapshot for email: \(email): \(snapshot)")
 
+            if let userData = snapshot.value as? [String: Any],
+               let userName = userData["name"] as? String {
+                completion(userName)
+            } else {
+                completion(nil)
+            }
+        })
+    }
     
     private func fetchMessages() {
         guard let sessionId = chatSession?.sessionId,
