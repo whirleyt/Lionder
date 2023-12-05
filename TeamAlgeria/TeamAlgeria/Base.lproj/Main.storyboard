@@ -1035,20 +1035,8 @@
                     <view key="view" contentMode="scaleToFill" id="WJN-fE-9ZI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f98-uX-tSZ">
-                                <rect key="frame" x="172.66666666666666" y="416" width="47.666666666666657" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="U2b-ML-9bw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="f98-uX-tSZ" firstAttribute="centerX" secondItem="WJN-fE-9ZI" secondAttribute="centerX" id="1Ut-71-VSF"/>
-                            <constraint firstItem="f98-uX-tSZ" firstAttribute="centerY" secondItem="WJN-fE-9ZI" secondAttribute="centerY" id="Cec-Ih-Ujr"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Match" id="UwG-RV-i5t">
                         <barButtonItem key="leftBarButtonItem" title="Calendar" id="Awv-j2-8QR">
@@ -1346,8 +1334,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jeb-N1-nbz"/>
-        <segue reference="Nhl-k8-K8Z"/>
+        <segue reference="QuC-0m-bTj"/>
+        <segue reference="uyv-dr-nb4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon-crown" width="699" height="613"/>

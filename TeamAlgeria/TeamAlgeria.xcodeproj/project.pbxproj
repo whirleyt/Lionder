@@ -53,9 +53,7 @@
 		6C0398262B0578D70038CE92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0398252B0578D70038CE92 /* ViewController.swift */; };
 		6C0398292B0578D70038CE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0398272B0578D70038CE92 /* Main.storyboard */; };
 		6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */; };
-		BB0B3A6F2B1EFDC900002DE1 /* CalendarEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0B3A6E2B1EFDC900002DE1 /* CalendarEventsViewController.swift */; };
-		BB0B3A712B1F0D1A00002DE1 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0B3A702B1F0D1A00002DE1 /* EventsModel.swift */; };
-		BB0B3A732B1F19D600002DE1 /* CalendarEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0B3A722B1F19D500002DE1 /* CalendarEventsService.swift */; };
+		BF40AF462B1F56070036D80A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40AF452B1F56070036D80A /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,9 +86,7 @@
 		6C0398282B0578D70038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C03982D2B0578DA0038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C03982F2B0578DA0038CE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB0B3A6E2B1EFDC900002DE1 /* CalendarEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventsViewController.swift; sourceTree = "<group>"; };
-		BB0B3A702B1F0D1A00002DE1 /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
-		BB0B3A722B1F19D500002DE1 /* CalendarEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventsService.swift; sourceTree = "<group>"; };
+		BF40AF452B1F56070036D80A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +149,7 @@
 			children = (
 				214D53642B195874006BC0DB /* MapViewController.swift */,
 				214D53652B195874006BC0DB /* MatchViewController.swift */,
+				BF40AF452B1F56070036D80A /* FirebaseManager.swift */,
 				214D53612B195874006BC0DB /* MessagingViewController.swift */,
 				214D53622B195874006BC0DB /* ChatTableViewCell.swift */,
 				211781242B1C25400077C2ED /* defaultProfilePic.png */,
@@ -306,6 +303,7 @@
 				214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */,
 				599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */,
 				5996677E2B18005F00E99F6D /* createFriendProfileVC.swift in Sources */,
+				BF40AF462B1F56070036D80A /* FirebaseManager.swift in Sources */,
 				215DFC072B1A84B600E04AE3 /* ChatDetailedViewController.swift in Sources */,
 				214D53692B195874006BC0DB /* MapViewController.swift in Sources */,
 			);
