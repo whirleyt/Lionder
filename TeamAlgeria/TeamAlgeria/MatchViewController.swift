@@ -176,6 +176,7 @@ class MatchViewController: UIViewController {
         // Replace "_dot_" with "."
         return userID.replacingOccurrences(of: "_dot_", with: ".")
     }
+    
 
     func downloadImageForUser(userID: String) {
         let userImagesRef = storageRef.child("user/\(userID)/images")
