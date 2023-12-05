@@ -1,18 +1,25 @@
-
-
 import UIKit
 import Firebase
 import FirebaseStorage
 import SDWebImage
+
+
+struct User {
+    let userID: String
+    let userData: [String: Any]
+}
 
 class MatchViewController: UIViewController {
 
     var ref: DatabaseReference!
     var storageRef: StorageReference!
     
-    var loadedUsers: [String] = []
+    var loadedUsers: [User] = []
     var currentIndex = 0
     var imageView: UIImageView?
+    
+    var likedList: [User] = []
+    var dislikedList: [User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +51,17 @@ class MatchViewController: UIViewController {
                                         print("User ID: \(userID), User Data: \(userDataDict)")
                                         
                                         let cleanedUserID = self.cleanUserID(userID: userID) // email address formatting
-                                        self.loadedUsers.append(cleanedUserID)
+                                        let user = User(userID: cleanedUserID, userData: userDataDict)
+                                        self.loadedUsers.append(user)
+                                        
                                     }
                                 }
                             }
                             
                             // Setup initial image view
                             self.imageView = UIImageView(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: self.view.frame.height - 200))
+                            self.imageView?.layer.cornerRadius = 20 // 둥근 모서리 설정
+                            self.imageView?.clipsToBounds = true // 모서리 기능을 적용하기 위해 clipsToBounds 설정
                             self.view.addSubview(self.imageView!)
 
                             // Add swipe gesture recognizer
@@ -79,6 +90,12 @@ class MatchViewController: UIViewController {
         } else {
             print("User not logged in")
         }
+        
+        print("Loaded Users:")
+        for user in self.loadedUsers {
+            print("UserID: \(user.userID), UserData: \(user.userData)")
+        }
+        
     }
 
     @objc func didSwipe(_ gesture: UIPanGestureRecognizer) {
@@ -102,13 +119,17 @@ class MatchViewController: UIViewController {
             let alpha = 1 - abs(translation.x / (view.frame.width / 2))
             imageView.alpha = alpha
 
-            if gesture.state == .ended {
+        if gesture.state == .ended {
                 if translation.x < -125 {
                     // User swiped left, animate the image to disappear to the left
                     animateImageOffScreen(direction: .left)
+                    // Add the user to the dislikedList
+                    addToDislikedList()
                 } else if translation.x > 125 {
                     // User swiped right, animate the image to disappear to the right
                     animateImageOffScreen(direction: .right)
+                    // Add the user to the likedList
+                    addToLikedList()
                 } else {
                     // Return the image view to its original position if the swipe is not significant
                     resetImageView()
@@ -116,25 +137,42 @@ class MatchViewController: UIViewController {
             }
         }
 
-    func animateImageOffScreen(direction: AnimationDirection) {
-        guard let imageView = imageView else { return }
-
-        let screenWidth = view.frame.width
-        let offScreenX = direction == .left ? -screenWidth : screenWidth * 2
-
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-            // Apply a curve to the image animation
-            imageView.alpha = 0.0
-            imageView.center = CGPoint(x: offScreenX, y: imageView.center.y + 100) // Adjust the curve
-            imageView.transform = CGAffineTransform(rotationAngle: direction == .left ? -0.2 : 0.2) // Apply a rotation for a curve
-        }) { (_) in
-            // Animation completion block, load the next image
-            self.loadNextImage()
-
-            // Reset the image view to its original position and reset alpha
-            self.resetImageView()
-        }
+    func addToLikedList() {
+        guard currentIndex < self.loadedUsers.count else { return }
+        let likedUser = self.loadedUsers[currentIndex]
+        likedList.append(likedUser)
     }
+
+    func addToDislikedList() {
+        guard currentIndex < self.loadedUsers.count else { return }
+        let dislikedUser = self.loadedUsers[currentIndex]
+        dislikedList.append(dislikedUser)
+    }
+
+    func animateImageOffScreen(direction: AnimationDirection) {
+            guard let imageView = imageView, currentIndex > 0 else { return }
+
+            let screenWidth = view.frame.width
+            let offScreenX = direction == .left ? -screenWidth : screenWidth * 2
+
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+                if direction == .left {
+                    imageView.transform = CGAffineTransform(rotationAngle: -0.2)
+                } else {
+                    imageView.transform = CGAffineTransform(rotationAngle: 0.2)
+                }
+                imageView.center = CGPoint(x: offScreenX, y: imageView.center.y + 200)
+                imageView.alpha = 0.0
+            }) { (_) in
+                // Animation completion block, load the next image
+                self.loadNextImage()
+                self.printLikedList()
+                self.printDislikedList()
+
+                // Reset the image view to its original position and reset alpha
+                self.resetImageView()
+            }
+        }
     
     func resetImageView() {
         guard let imageView = imageView else { return }
@@ -148,28 +186,36 @@ class MatchViewController: UIViewController {
     }
 
     func loadNextImage() {
-            guard currentIndex < loadedUsers.count else {
-                // No more images to load
-                print("No more images to load.")
+        guard currentIndex < self.loadedUsers.count else {
+            // No more images to load
+            print("No more images to load.")
 
-                // Display a message when there are no more images
-                let messageLabel = UILabel(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 100))
-                messageLabel.text = "No more user found!\nSorry, Try later!"
-                messageLabel.numberOfLines = 0
-                messageLabel.textAlignment = .center
-                messageLabel.center = self.view.center
-                self.view.addSubview(messageLabel)
+            // Display a message when there are no more images
+            let messageLabel = UILabel(frame: CGRect(x: 20, y: 100, width: self.view.frame.width - 40, height: 100))
+            messageLabel.text = "No more user found!\nSorry, Try later!"
+            messageLabel.numberOfLines = 0
+            messageLabel.textAlignment = .center
+            messageLabel.center = self.view.center
+            self.view.addSubview(messageLabel)
 
-                // Hide the image view when there are no more images
-                imageView?.isHidden = true
+            // Hide the image view when there are no more images
+            self.imageView?.isHidden = true
 
-                return
-            }
-
-            let userID = loadedUsers[currentIndex]
-            downloadImageForUser(userID: userID)
-            currentIndex += 1
+            return
         }
+
+        let user = self.loadedUsers[currentIndex]
+        let userID = user.userID
+
+        // Save the user's email address before loading the next image
+        let userEmail = cleanUserID(userID: userID)
+
+        downloadImageForUser(userID: userID)
+        currentIndex += 1
+
+        // Output the saved email address
+        print("Current user's email: \(userEmail)")
+    }
 
         
     func cleanUserID(userID: String) -> String {
@@ -210,6 +256,21 @@ class MatchViewController: UIViewController {
             }
         }
     }
+    
+    func printLikedList() {
+        print("Liked Users:")
+        for user in likedList {
+            print("UserID: \(user.userID), UserData: \(user.userData)")
+        }
+    }
+
+    func printDislikedList() {
+        print("Disliked Users:")
+        for user in dislikedList {
+            print("UserID: \(user.userID), UserData: \(user.userData)")
+        }
+    }
+
     
     enum AnimationDirection {
         case left
