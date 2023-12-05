@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEZ-y8-TT8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="685"/>
+            <point key="canvasLocation" x="867.93893129770993" y="684.50704225352115"/>
         </scene>
         <!--Create Main ProfileVC-->
         <scene sceneID="8cC-ur-Pjj">
@@ -425,10 +425,6 @@
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-YS-5cQ">
-                                <rect key="frame" x="117" y="179" width="159" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tdg-0B-8Sh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -437,7 +433,6 @@
                     <connections>
                         <outlet property="clubs" destination="1cK-lh-HKA" id="Phx-0b-ges"/>
                         <outlet property="extracurriculars" destination="eaT-da-6a4" id="NWo-ih-nbR"/>
-                        <outlet property="imageView" destination="gWP-YS-5cQ" id="Ti7-cZ-5rF"/>
                         <outlet property="interests" destination="vvo-wQ-UZR" id="pTT-cv-lH8"/>
                     </connections>
                 </viewController>
@@ -1049,7 +1044,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="YSg-CU-LQM">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="vSo-Az-FVl" id="mbh-pm-NN1"/>
-                                <segue destination="rOz-zx-FTK" kind="show" identifier="showProfile" id="QuC-0m-bTj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1337,8 +1331,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tf3-1i-QQK"/>
-        <segue reference="jeb-N1-nbz"/>
-        <segue reference="Nhl-k8-K8Z"/>
+        <segue reference="P7B-Ag-byj"/>
+        <segue reference="uyv-dr-nb4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon-crown" width="699" height="613"/>

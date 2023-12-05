@@ -24,11 +24,9 @@ class firebaseViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButton(_ sender: Any)
     {
         
-//        let email = emailText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-//        let password = passwordText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let email = emailText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordText.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let email = "hh2989@columbia.edu"
-        let password = "aaaaaa"
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
