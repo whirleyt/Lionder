@@ -162,6 +162,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
             DispatchQueue.main.async {
                 if let name = userName {
                     cell.nameLabel.text = name
+                    cell.nameLabel.textColor = .label
                 } else {
                     cell.nameLabel.text = "Unknown User"
                 }
@@ -170,9 +171,22 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
 
         if let lastMessage = chatSession.chatMessages.last {
             cell.lastMessageLabel.text = lastMessage.content
+            cell.lastMessageLabel.textColor = .gray
+            cell.lastMessageLabel.font = UIFont.systemFont(ofSize: 17)
+            cell.lastMessageLabel.textAlignment = .left
+            cell.lastMessageLabel.alpha = 1.0
             cell.timeLabel.text = formatTimestamp(lastMessage.timestamp)
+            cell.timeLabel.textColor = .gray
+            cell.timeLabel.font = UIFont.systemFont(ofSize: 17)
         } else {
             cell.lastMessageLabel.text = "Start texting!"
+            cell.lastMessageLabel.textColor = .gray
+            cell.lastMessageLabel.font = UIFont.italicSystemFont(ofSize: 17)
+            cell.lastMessageLabel.textAlignment = .left
+            cell.lastMessageLabel.alpha = 0.5
+            cell.timeLabel.text = "time"
+            cell.timeLabel.textColor = .systemBackground
+            cell.timeLabel.font = UIFont.systemFont(ofSize: 17)
         }
         
         cell.profileImageView.image = UIImage(named: "defaultProfilePic")
