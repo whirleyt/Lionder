@@ -19,7 +19,6 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func profileButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "showProfile", sender: self)
     }
-    
     var chatSessions: [ChatSession] = []
 
     
@@ -27,6 +26,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        var currentUserId = Auth.auth().currentUser?.uid
+        print(currentUserId ?? "noid")
         //initializeDummyData()
         fetchChatSessions()
     }
@@ -34,10 +35,11 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
     
     private func initializeDummyData() {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
-        // let testUser1Id = "9PaKW4qI5eaKbhlkEY32gIuBGQn1" // rw1
-        let testUser2Id = "I01Q0MmkuNeF6qkoEYv8DK2YgeD3" // rw2
-        let testUser3Id = "qoI9cqm8j1bKr4q2fSYnKbiNZgp1" // rw5
-        let testUser4Id = "Xq2Hl6XOR6ReyNcad7JVLrL0ZwA2" // rw4
+        // let testUser1Id = "zacAGjInpgTMBzhz5vpNUY63E2k2" // user1
+        let testUser2Id = "qVF8ba0f4VhoWI8vN42zB7OL6QS2" // user2
+        let testUser3Id = "4gYJvxirqzSw1UwmgxvxI4qCcHh1" // user3
+        let testUser4Id = "ojwEdxSkLTfeHIFPppfyBibLDlx2" // user4
+    
 
         let session1: [String: Any] = [
             "sessionId": "session1",
