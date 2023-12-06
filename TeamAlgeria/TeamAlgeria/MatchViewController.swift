@@ -30,6 +30,7 @@ class MatchViewController: UIViewController {
         loadUserData()
     }
 
+    
     func setupLayout() {
         view.backgroundColor = .white
 
