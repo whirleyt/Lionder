@@ -18,6 +18,8 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var school: UILabel!
     @IBOutlet weak var bio: UILabel!
 
+    @IBOutlet weak var logOutButton: UIButton!
+    
     var databaseRef: DatabaseReference!
     var userProfile: UserProfile? = UserProfile()
     var storageRef: StorageReference!
@@ -164,6 +166,21 @@ class UserProfileVC: UIViewController {
         fetchThirdPhoto()
         fetchFourthPhoto()
     }
+    
+    func signOut() {
+        AuthenticationManager.signOut { error in
+            if let error = error {
+                print("Sign-out error: \(error.localizedDescription)")
+            } else {
+                Coordinator.showLoginScreen()
+            }
+        }
+    }
+
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        signOut()
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MatchProfileVC {

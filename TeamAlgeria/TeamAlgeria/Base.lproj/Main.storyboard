@@ -27,7 +27,7 @@
         <!--Firebase View Controller-->
         <scene sceneID="wYw-54-bYG">
             <objects>
-                <viewController id="9xq-14-m4T" customClass="firebaseViewController" customModule="TeamAlgeria" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="logInPage" id="9xq-14-m4T" customClass="firebaseViewController" customModule="TeamAlgeria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e7w-xe-ZLU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -950,6 +950,15 @@
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ota-LQ-oa6">
+                                <rect key="frame" x="279" y="103" width="78" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="rOz-zx-FTK" eventType="touchUpInside" id="D9V-VF-FcR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mcd-KC-mQF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -999,6 +1008,7 @@
                         <outlet property="image2" destination="ZbR-XE-Hrx" id="WHM-tF-bjl"/>
                         <outlet property="image3" destination="8Jk-zV-b38" id="hGj-qe-kw0"/>
                         <outlet property="image4" destination="gRx-2q-rEv" id="IH3-Tn-m7R"/>
+                        <outlet property="logOutButton" destination="ota-LQ-oa6" id="YdK-DF-9X7"/>
                         <outlet property="name" destination="Auf-L6-zTP" id="wXg-sh-pb4"/>
                         <outlet property="profileImage" destination="ChM-ja-oLT" id="OeL-Bm-J4g"/>
                         <outlet property="pronouns" destination="91g-Mb-BRk" id="OON-8Y-9Sv"/>
