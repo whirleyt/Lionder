@@ -54,6 +54,7 @@
 		6C0398292B0578D70038CE92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0398272B0578D70038CE92 /* Main.storyboard */; };
 		6C03982E2B0578DA0038CE92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C03982C2B0578DA0038CE92 /* LaunchScreen.storyboard */; };
 		BF40AF462B1F56070036D80A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40AF452B1F56070036D80A /* FirebaseManager.swift */; };
+		BF40AF4E2B2119490036D80A /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40AF4D2B2119490036D80A /* AuthenticationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		6C03982D2B0578DA0038CE92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C03982F2B0578DA0038CE92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF40AF452B1F56070036D80A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		BF40AF4D2B2119490036D80A /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +162,6 @@
 				215DFBFC2B1A634500E04AE3 /* ChatSession.swift */,
 				214D53632B195874006BC0DB /* ChatMessage.swift */,
 				6C0398272B0578D70038CE92 /* Main.storyboard */,
-				BB0B3A6E2B1EFDC900002DE1 /* CalendarEventsViewController.swift */,
-				BB0B3A722B1F19D500002DE1 /* CalendarEventsService.swift */,
-				BB0B3A702B1F0D1A00002DE1 /* EventsModel.swift */,
 				6C0398252B0578D70038CE92 /* ViewController.swift */,
 				6C0398232B0578D70038CE92 /* SceneDelegate.swift */,
 				6C0398212B0578D70038CE92 /* AppDelegate.swift */,
@@ -174,6 +173,7 @@
 				5996677D2B18005F00E99F6D /* createFriendProfileVC.swift */,
 				5996677F2B18007400E99F6D /* createStudyProfileVC.swift */,
 				599667812B18023300E99F6D /* createPhotosBioProfileVC.swift */,
+				BF40AF4D2B2119490036D80A /* AuthenticationManager.swift */,
 				599667832B18064300E99F6D /* UserProfile.swift */,
 				59126B722B1BC21900D7CA2F /* UserProfileVC.swift */,
 				59126B762B1D58F700D7CA2F /* MatchProfileVC.swift */,
@@ -288,10 +288,9 @@
 				59126B732B1BC21900D7CA2F /* UserProfileVC.swift in Sources */,
 				599667842B18064300E99F6D /* UserProfile.swift in Sources */,
 				6C0398222B0578D70038CE92 /* AppDelegate.swift in Sources */,
-				BB0B3A732B1F19D600002DE1 /* CalendarEventsService.swift in Sources */,
 				215DFBFD2B1A634500E04AE3 /* ChatSession.swift in Sources */,
+				BF40AF4E2B2119490036D80A /* AuthenticationManager.swift in Sources */,
 				214D53662B195874006BC0DB /* MessagingViewController.swift in Sources */,
-				BB0B3A712B1F0D1A00002DE1 /* EventsModel.swift in Sources */,
 				5996677C2B18004800E99F6D /* createDatingProfileVC.swift in Sources */,
 				599667822B18023300E99F6D /* createPhotosBioProfileVC.swift in Sources */,
 				215DFC0B2B1A965600E04AE3 /* OutMessageCell.swift in Sources */,
@@ -299,7 +298,6 @@
 				214D536A2B195874006BC0DB /* MatchViewController.swift in Sources */,
 				6C0398242B0578D70038CE92 /* SceneDelegate.swift in Sources */,
 				215DFC092B1A8CB700E04AE3 /* InMessageCell.swift in Sources */,
-				BB0B3A6F2B1EFDC900002DE1 /* CalendarEventsViewController.swift in Sources */,
 				214D53672B195874006BC0DB /* ChatTableViewCell.swift in Sources */,
 				599667742B12CBCD00E99F6D /* firebaseViewController.swift in Sources */,
 				5996677E2B18005F00E99F6D /* createFriendProfileVC.swift in Sources */,
