@@ -1,6 +1,5 @@
 //
 //  MapViewController.swift
-//  messaging
 //
 //  Created by Runwei Wang on 11/16/23.
 //  Edited by Tara Whirley 12/4/23

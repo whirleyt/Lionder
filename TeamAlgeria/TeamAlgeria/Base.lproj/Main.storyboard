@@ -1031,6 +1031,45 @@
                     <view key="view" contentMode="scaleToFill" id="WJN-fE-9ZI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21i-31-UK7">
+                                <rect key="frame" x="76" y="191" width="240" height="424"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="imageView" label="imageView"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv6-Jx-zay">
+                                <rect key="frame" x="135" y="153" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="name" label="Name"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQt-Uj-wSa">
+                                <rect key="frame" x="54" y="721" width="131" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="dislikeButton" label="Dislike"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Dislike">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dislikeButtonTapped:" destination="vSo-Az-FVl" eventType="touchUpInside" id="kNz-aE-8jn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqc-sz-neb">
+                                <rect key="frame" x="217" y="721" width="131" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="likeButton" label="Like"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Like">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="likeButtonTapped:" destination="vSo-Az-FVl" eventType="touchUpInside" id="5E4-1J-ElC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="U2b-ML-9bw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -1044,13 +1083,20 @@
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="YSg-CU-LQM">
                             <connections>
                                 <action selector="profileButtonTapped:" destination="vSo-Az-FVl" id="mbh-pm-NN1"/>
+                                <segue destination="rOz-zx-FTK" kind="show" id="0so-Ve-IvF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dislikeButton" destination="tQt-Uj-wSa" id="hI0-NT-x8R"/>
+                        <outlet property="imageView" destination="21i-31-UK7" id="lZU-Yj-2dW"/>
+                        <outlet property="likeButton" destination="Wqc-sz-neb" id="6qv-eo-KHi"/>
+                        <outlet property="name" destination="gv6-Jx-zay" id="LvK-wJ-phZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZa-hq-mMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3454" y="3561"/>
+            <point key="canvasLocation" x="3452.6717557251909" y="3560.5633802816901"/>
         </scene>
         <!--Messaging-->
         <scene sceneID="NIr-Es-UVp">
@@ -1331,7 +1377,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tf3-1i-QQK"/>
-        <segue reference="P7B-Ag-byj"/>
+        <segue reference="0so-Ve-IvF"/>
         <segue reference="uyv-dr-nb4"/>
     </inferredMetricsTieBreakers>
     <resources>
