@@ -33,6 +33,9 @@ class MatchViewController: UIViewController, UIViewControllerTransitioningDelega
         let dbURL: String = "https://algeria-fb873-default-rtdb.firebaseio.com/"
         ref = Database.database().reference(fromURL: dbURL)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGesture)
+        
         name.text = ""
 
        fetchAllUsers()
@@ -385,4 +388,17 @@ class MatchViewController: UIViewController, UIViewControllerTransitioningDelega
             }
         }
     }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+          performSegue(withIdentifier: "matchProfile", sender: self)
+      }
+
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          if segue.identifier == "matchProfile" {
+              let selectedUser = loadedUsers[currentIndex]
+              if let destinationVC = segue.destination as? MatchProfileClickVC {
+                  destinationVC.email = selectedUser.email
+              }
+          }
+      }
 }
