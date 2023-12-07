@@ -42,7 +42,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
             print("No user email found")
         }
         
-        initializeDummyData()
+        //initializeDummyData()
         //fetchChatSessions()
     }
 
