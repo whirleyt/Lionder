@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
+import FirebaseStorage
 
 class MessagingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -22,7 +24,8 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
     var emailForDB: String?
     var chatSessions: [ChatSession] = []
     var userNames: [String: String] = [:]
-
+    var storageRef: StorageReference!
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,9 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.dataSource = self
         //var currentUserId = Auth.auth().currentUser?.uid
         //print(currentUserId ?? "noid")
+        
+        storageRef = Storage.storage().reference()
+        db = Firestore.firestore()
         
         if let currentUserEmail = Auth.auth().currentUser?.email {
             // Replace characters as needed to comply with Firebase key constraints
@@ -106,6 +112,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
             }
         })
     }
+    
 
     private func fetchChatSessions() {
         
@@ -136,7 +143,39 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
             }
         })
     }
+    
+    func fetchProfilePictureURL(forEmail email: String, completion: @escaping (String?) -> Void) {
+        let userRef = db.collection("user").document(email).collection("images").document("image0")
 
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists,
+               let imageName = document.data()?["downloadURL"] as? String {
+                completion(imageName)
+            } else {
+                print("No profile picture URL found in Firestore for user: \(email). Using default profile pic.")
+                completion(nil)
+            }
+        }
+    }
+
+    func loadImageFromStorage(imageURL: String, imageView: UIImageView) {
+        if let url = URL(string: imageURL) {
+            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "defaultProfilePic"), options: [], completed: { (image, error, cacheType, url) in
+                // After the image has been loaded, apply the circular mask
+                DispatchQueue.main.async {
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = imageView.frame.size.width / 2
+                    imageView.clipsToBounds = true
+                }
+            })
+        } else {
+            // If imageURL is not valid, set the default profile picture
+            imageView.image = UIImage(named: "defaultProfilePic")
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.cornerRadius = imageView.frame.size.width / 2
+            imageView.clipsToBounds = true
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatSessions.count
@@ -156,7 +195,20 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
         let chatSession = chatSessions[indexPath.row]
         
         let otherUserEmail = (chatSession.user1Id == emailForDB ? chatSession.user2Id : chatSession.user1Id)!
-
+        
+        let otherUserEmailStore = otherUserEmail.replacingOccurrences(of: "_dot_", with: ".")
+        fetchProfilePictureURL(forEmail: otherUserEmailStore) { imageURL in
+            DispatchQueue.main.async {
+                if let imageURL = imageURL {
+                    self.loadImageFromStorage(imageURL: imageURL, imageView: cell.profileImageView)
+                } else {
+                    cell.profileImageView.image = UIImage(named: "defaultProfilePic")
+                    cell.profileImageView.contentMode = .scaleAspectFill
+                    cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+                    cell.profileImageView.clipsToBounds = true
+                }
+            }
+        }
         
         fetchUserName(email: otherUserEmail) { userName in
             DispatchQueue.main.async {
@@ -189,7 +241,7 @@ class MessagingViewController: UIViewController, UITableViewDataSource, UITableV
             cell.timeLabel.font = UIFont.systemFont(ofSize: 17)
         }
         
-        cell.profileImageView.image = UIImage(named: "defaultProfilePic")
+        //cell.profileImageView.image = UIImage(named: "defaultProfilePic")
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
         cell.profileImageView.clipsToBounds = true
 

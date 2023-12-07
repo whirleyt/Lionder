@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
+import FirebaseStorage
 
 class ChatDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -20,6 +22,8 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
     let currentUserId = Auth.auth().currentUser?.uid
     var chatSession: ChatSession?
     var emailForDB: String?
+    var storageRef: StorageReference!
+    var db: Firestore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +31,13 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        setupProfileImageView()
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
         fetchMessages()
         sendButtonBottom.constant = 0
+        storageRef = Storage.storage().reference()
+        db = Firestore.firestore()
         
         if let currentUserEmail = Auth.auth().currentUser?.email {
             // Replace characters as needed to comply with Firebase key constraints
@@ -55,6 +63,20 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
                     self.nameLabel.textColor = .label
                 } else {
                     nameLabel.text = "Unknown User"
+                }
+            }
+        }
+        
+        let otherUserEmailStore = otherUserEmail.replacingOccurrences(of: "_dot_", with: ".")
+        fetchProfilePictureURL(forEmail: otherUserEmailStore) { imageURL in
+            DispatchQueue.main.async {
+                if let imageURL = imageURL {
+                    self.loadImageFromStorage(imageURL: imageURL, imageView: self.profileImageView)
+                } else {
+                    self.profileImageView.image = UIImage(named: "defaultProfilePic")
+                    self.profileImageView.contentMode = .scaleAspectFill
+                    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+                    self.profileImageView.clipsToBounds = true
                 }
             }
         }
@@ -93,13 +115,41 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
         let indexPath = IndexPath(row: lastRow, section: 0)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
     }
+    
+    func fetchProfilePictureURL(forEmail email: String, completion: @escaping (String?) -> Void) {
+        let userRef = db.collection("user").document(email).collection("images").document("image0")
 
-    private func setupProfileImageView() {
-        profileImageView.image = UIImage(named: "defaultProfilePic")
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
-        profileImageView.clipsToBounds = true
-        
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists,
+               let imageName = document.data()?["downloadURL"] as? String {
+                completion(imageName)
+            } else {
+                print("No profile picture URL found in Firestore for user: \(email). Using default profile pic.")
+                completion(nil)
+            }
+        }
     }
+    
+    
+    func loadImageFromStorage(imageURL: String, imageView: UIImageView) {
+        if let url = URL(string: imageURL) {
+            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "defaultProfilePic"), options: [], completed: { (image, error, cacheType, url) in
+                // After the image has been loaded, apply the circular mask
+                DispatchQueue.main.async {
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.cornerRadius = imageView.frame.size.width / 2
+                    imageView.clipsToBounds = true
+                }
+            })
+        } else {
+            // If imageURL is not valid, set the default profile picture
+            imageView.image = UIImage(named: "defaultProfilePic")
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.cornerRadius = imageView.frame.size.width / 2
+            imageView.clipsToBounds = true
+        }
+    }
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatSession?.chatMessages.count ?? 0
@@ -124,6 +174,7 @@ class ChatDetailViewController: UIViewController, UITableViewDataSource, UITable
             return cell
         }
     }
+
     
     private func fetchUserName(email: String, completion: @escaping (String?) -> Void) {
         let usersRef = Database.database().reference().child("user").child(email)
