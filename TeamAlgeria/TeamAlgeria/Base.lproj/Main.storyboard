@@ -1261,11 +1261,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5q-Zd-3Qh">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5q-Zd-3Qh">
                                 <rect key="frame" x="0.0" y="103" width="393" height="551"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="J5q-Zd-3Qh" secondAttribute="height" multiplier="393:551" id="eIf-wu-iMB"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5f-yM-Qpv">
@@ -1302,8 +1300,6 @@
                         <viewLayoutGuide key="safeArea" id="NA5-DP-Ivu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="O5f-yM-Qpv" firstAttribute="top" secondItem="J5q-Zd-3Qh" secondAttribute="bottom" constant="67" id="3mC-LI-8L5"/>
-                            <constraint firstItem="rDc-Xf-XAZ" firstAttribute="top" secondItem="J5q-Zd-3Qh" secondAttribute="bottom" constant="67" id="GJh-Jd-BI0"/>
                             <constraint firstItem="O5f-yM-Qpv" firstAttribute="leading" secondItem="NA5-DP-Ivu" secondAttribute="leading" constant="44" id="HGF-gf-bhb"/>
                             <constraint firstItem="NA5-DP-Ivu" firstAttribute="bottom" secondItem="O5f-yM-Qpv" secondAttribute="bottom" id="Vht-x9-L9c"/>
                             <constraint firstItem="NA5-DP-Ivu" firstAttribute="bottom" secondItem="rDc-Xf-XAZ" secondAttribute="bottom" id="Yeb-Dy-erF"/>
@@ -1763,8 +1759,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="GI3-0F-vw7"/>
         <segue reference="tf3-1i-QQK"/>
-        <segue reference="0so-Ve-IvF"/>
-        <segue reference="uyv-dr-nb4"/>
+        <segue reference="jeb-N1-nbz"/>
+        <segue reference="Nhl-k8-K8Z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon-crown" width="699" height="613"/>
